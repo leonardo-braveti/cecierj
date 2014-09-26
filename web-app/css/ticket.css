@@ -1,0 +1,9 @@
+@import url("estilo.css");
+
+#selecao{
+	position: relative;
+	top: 10px;
+}
+#selecao .botao{
+	width: 100px;
+}

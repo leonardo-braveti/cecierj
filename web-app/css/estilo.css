@@ -1,0 +1,36 @@
+body{
+	margin:0;
+	padding:0;
+}
+#completo{
+	margin:0 auto;
+	position: relative;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+}
+#topo{
+	position: relative;
+	top:10px;
+	padding: 10px;
+}
+#topo #banner{
+	width: 150px;
+}
+#mensagem{
+	margin:0 auto;
+	position: relative;	
+	padding-top: 10px;	
+	width: 60%;
+}
+
+#corpo{
+	position: relative;
+	top: 20px;
+	margin:0 auto;
+	width: 70%;
+}
+#corpo .botao{
+	width: 80px;
+	height: 35px;
+}
