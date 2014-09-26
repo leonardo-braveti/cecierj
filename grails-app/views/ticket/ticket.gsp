@@ -27,12 +27,12 @@
         <button type="button" class="btn btn-default navbar-btn botao" tipo="grafica">Gráfica</button>
         <button type="button" class="btn btn-default navbar-btn botao" tipo="cederj">CEDERJ</button>
         <button type="button" class="btn btn-default navbar-btn botao" tipo="ceja">CEJA</button>
-        <button type="button" class="btn btn-default navbar-btn botao" tipo="ceja">Tutoria</button>        
+        <button type="button" class="btn btn-default navbar-btn botao" tipo="tutoria">Tutoria</button>        
       </div>
 
       <div id="corpo">        
         
-        <g:form name="registrationForm" class="form-horizontal" url="[action:'salvarTicketInterno',controller:'ticket']" >
+        <g:form name="registrationForm" class="form-horizontal" url="[action:'salvar',controller:'ticket']" >
 
           <div class="form-group">
             <label class="col-lg-3 control-label">Nome Completo</label>
@@ -64,8 +64,20 @@
           
           <div class="form-group" id="local">
             <label class="col-lg-3 control-label">Local</label>
-            <div class="col-lg-6">
-              <input type="text" class="form-control" name="local" placeholder="Informe a cidade ou o bairro">              
+            <div class="col-lg-6">            
+              
+              <select id="local_ceja" name="local_ceja">
+                  <option value="Angra dos Reis">Angra dos Reis<option>
+              <select>
+ 
+              <select id="local_cederj" name="local_cederj">
+                  <option value="São Pedro da Aldeia">São Pedro da Aldeia<option>              
+              </select>
+              
+              <select id="local_tutoria" name="local_tutoria">
+                  <option value="UFRJ">UFRJ<option>              
+              </select>
+              
             </div>
           </div>
           
@@ -137,12 +149,12 @@
         $(".botao").click(function(){
           $("#corpo").show();
           
-          var local = $(this).attr("tipo");
+          var local = $(this).attr("tipo");               
           var classe = $(this).removeAttr("class");
           $(".botao").attr("class","btn btn-default navbar-btn botao");
           $(this).attr("class","btn btn-success navbar-btn botao");
           
-          if(local == "ceja" || local == "cederj"){
+          if(local == "ceja" || local == "cederj" || local == "tutoria"){
             $("#corpo #local").show();
             $("#corpo #funcao").show();
             $("#corpo #setor").hide();
@@ -152,6 +164,27 @@
             $("#corpo #funcao").hide();
             $("#corpo #setor").show();
           }         
+          
+          if(local == "ceja"){            
+            $("#local_cederj").hide();
+            $("#local_tutoria").hide();
+            $("#local_ceja").show();
+          }
+          
+          else if(local == "cederj"){            
+            $("#local_cederj").show();
+            $("#local_ceja").hide();        
+            $("#local_tutoria").hide();
+          }
+          else if(local == "tutoria"){            
+            $("#local_tutoria").show();
+            $("#local_cederj").hide();
+            $("#local_ceja").hide();        
+          }
+          else{
+            // Nada a fazer aqui
+          }
+          
           $("#tipo").val(local);          
 
         });

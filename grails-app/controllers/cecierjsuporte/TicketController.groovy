@@ -1,26 +1,38 @@
 package cecierjsuporte
 
 class TicketController {
+    
+    
 
     def novo() {
        render(view : "ticket")
     }
     
-    def salvarTicketInterno(){
+    def salvar(){
+        def dados = params
+        
+        //def locais = ["local_ce"]
+        
+        
+        if(dados.tipo == "centro")
+            salvarTicketInterno(dados)
+        else
+            salvarTicketExterno(dados)
+    }
+    
+    def salvarTicketInterno(params){
         def ticket  = new TicketInterno(params);        
-        ticket.setData(new Date());    
-        
-        def id =  ticket.save(flush: true)
-        
+        ticket.setData(new Date());            
+        def id =  ticket.save(flush: true)      
         
         render id
     }
     
-    def salvarTicketExterno(){
+    def salvarTicketExterno(params){
         def ticket  = new TicketExterno(params);        
         ticket.setData(new Date());    
         
         def id =  ticket.save(flush: true)
-        render "Sua solicitacao foi regisrada com o seguinte numero "+id
+        render id
     }
 }
