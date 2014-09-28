@@ -2,20 +2,22 @@
 
 #mensagem #titulo{
 	font-size: 30px;
+        
 }
 
 #mensagem .texto{
 
 }
 
-#selecao{
-	position: relative;
-	top: 10px;
+#entrada{
+    margin:0 auto;
+    position: relative;	
+    padding-top: 20px;	
+    width:60%;
 }
-#selecao .botao{
-	width: 200px;
+#entrada button{
+    width:100px;
 }
-
 #rodape{
-	padding-top: 20px;
+    padding-top: 50px;
 }

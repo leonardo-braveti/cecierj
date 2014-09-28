@@ -1,0 +1,21 @@
+@import url("estilo.css");
+
+#mensagem #titulo{
+	font-size: 30px;
+}
+
+#mensagem .texto{
+
+}
+
+#selecao{
+	position: relative;
+	top: 10px;
+}
+#selecao .botao{
+	width: 200px;
+}
+
+#rodape{
+	padding-top: 20px;
+}
