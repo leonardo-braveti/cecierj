@@ -10,6 +10,8 @@
     <link href="<g:resource dir="css" file="bootstrap.min.css" />" rel="stylesheet">
     <!-- Meu CSS -->
     <link href="<g:resource dir="css" file="index.css" />" rel="stylesheet">
+    
+    <link href="<g:resource dir="css" file="bootstrapValidator.min.css" />" rel="stylesheet">
 
   </head>
   <body>
@@ -19,12 +21,13 @@
       </div>
 
       <div id="mensagem">
-        <p id="titulo"> Suporte Informática </p>
+        <p id="titulo"> Departamento de Suporte Técnico em Informática </p>
         <p id="texto"> 
           Para agilizar as solicitações e melhor atendê-lo, o Departamento de Suporte está disponibilizando o Cecierj Ticket. 
           Para cada pedido, é gerdo um  número único para que você possa monitorar o status da solicitação.
-        </p> 
+        </p>
       </div>
+      
       
       <div id="entrada">
         <p>
@@ -32,7 +35,11 @@
         </p>
         <button class="btn btn-primary navbar-btn botao" id="decideSim">Sim</button>
         <button class="btn btn-warning navbar-btn botao" id="decideNao">Não</button>
+        <br><br>
         
+        <p id="login_invalido">
+            <g:message code="${flash.message}" />
+        </p>
         <div id="selecao">
             <p>
               Onde você está?
@@ -43,29 +50,10 @@
             <button type="button" class="btn btn-default navbar-btn botaos" tipo="grafica">Gráfica</button>
             <button type="button" class="btn btn-default navbar-btn botaos" tipo="cederj">CEDERJ</button>
             <button type="button" class="btn btn-default navbar-btn botaos" tipo="ceja">CEJA</button>
-            <button type="button" class="btn btn-default navbar-btn botaos" tipo="tutoria">Tutoria</button>        
+            <button type="button" class="btn btn-default navbar-btn botaos" tipo="tutoria">Tutoria</button>                                           
         </div>
         
-        <g:form name="formValidar" class="form-horizontal" url="[action:'validar',controller:'usuario']">
-            <div class="form-group">
-                <label class="col-lg-3 control-label">E-mail</label>
-                <div class="col-lg-6">
-                    <g:textField name="email" class="form-control"/>
-                </div>
-            </div>   
-            
-            <div class="form-group">
-                <label class="col-lg-3 control-label">Senha</label>
-                <div class="col-lg-6">
-                    <g:passwordField name="senha" class="form-control"/>
-                </div>
-            </div> 
-            
-            <div class="form-group">
-                <button type="submit" class="btn btn-success navbar-btn ">Entrar</button> 
-            </div>
-        </g:form>
-            
+        <br>
         <g:form name="formCadastrar" class="form-horizontal" url="[action:'cadastrar',controller:'usuario']">
             
             <!-- ***** inicio dos dados para configuração de usuario CENTRO, MANGUEIRA, SEDE e MUSEU ***** -->
@@ -87,14 +75,14 @@
             <div class="form-group">
                 <label class="col-lg-3 control-label">Senha</label>
                 <div class="col-lg-6">
-                    <g:textField name="senha" class="form-control"/>
+                    <g:passwordField name="senha" class="form-control"/>
                 </div>
             </div> 
             
             <div class="form-group">
                 <label class="col-lg-3 control-label">Repita a senha</label>
                 <div class="col-lg-6">
-                    <g:textField name="rsenha" class="form-control"/>
+                    <g:passwordField name="rsenha" class="form-control"/>
                 </div>
             </div> 
             
@@ -115,14 +103,24 @@
             <div class="form-group andar">
                 <label class="col-lg-3 control-label">Andar</label>
                 <div class="col-lg-6">
-                    <g:textField name="andar" class="form-control"/>
+                    <select name="andar" id="andar">
+                        <option class="op_vazio" selected></option>   
+                        <option value="15">15</option>              
+                        <option value="16">16</option>              
+                    </select>                    
                 </div>
             </div>
             
             <div class="form-group sala">
                 <label class="col-lg-3 control-label">Sala</label>
                 <div class="col-lg-6">
-                    <g:textField name="sala" class="form-control"/>
+                    <select name="sala" id="sala">
+                        <option class="op_vazio" selected></option> 
+                        <g:each var="i" in="${(1..<25)}">
+                            <option value=${i}>${i}</option> 
+                       </g:each>
+                    </select>                     
+                    
                 </div>
             </div>
             
@@ -133,93 +131,151 @@
             <div class="form-group funcao">
                 <label class="col-lg-3 control-label">Função Exercida</label>
                 <div class="col-lg-6">
-                    <g:textField name="sala" class="form-control"/>
+                    <g:textField name="funcao" class="form-control"/>
                 </div>
             </div>
             
             <div class="form-group local">
                 <label class="col-lg-3 control-label">Local</label>
                 <div class="col-lg-6">
-                    <select id="local_ceja" name="local_ceja">
-                        <option value="Angra dos Reis">Angra dos Reis<option>              
+                    <select id="local" name="local">
+                        <option class="local_cederj" value="Alemão">Alemão</option>    
+                        <option value="Angra dos Reis">Angra dos Reis</option>         
+                        <option class="local_ceja" value="Aperibé">Aperibé</option>          
+                        <option class="local_ceja" value="Araruama">Araruama</option>          
+                        <option class="local_ceja" value="Arrail do Cabo">Arrail do Cabo</option>              
+                        <option value="Barra do Piraí">Barra do Piraí</option>
+                        <option class="local_ceja" value="Barra Mansa">Barra Mansa</option>
+                        <option value="Belford Roxo">Belford Roxo</option>
+                        <option class="local_ceja" value="Bom Jardim">Bom Jardim</option>              
+                        <option value="Bom Jesus do Itapaboana">Bom Jesus do Itapaboana</option>
+                        <option class="local_ceja" value="Cambuci">Cambuci</option>              
+                        <option value="Campo Grande">Campo Grande</option>
+                        <option class="local_ceja" value="Campos dos Goytacazes">Campos dos Goytacazes</option>
+                        <option value="Cantagalo">Cantagalo</option>    
+                        <option class="local_ceja" value="Carmo">Carmo</option>    
+                        <option class="local_ceja" value="Casimiro de Abreu">Casimiro de Abreu</option>    
+                        <option class="local_ceja" value="Conceição de Macabu">Conceição de Macabu</option>              
+                        <option class="local_ceja" value="Copacana">Copacabana</option>    
+                        <option class="local_ceja" value="Copacana">Cordeiro</option>    
+                        <option class="local_ceja" value="Duas Barras">Duas Barras</option>    
+                        <option value="Duque de Caxias">Duque de Caxias</option>    
+                        <option class="local_ceja" value="Conceição de Macabu">Conceição de Macabu</option>              
+                        <option class="local_ceja" value="Engenheiro Paulo de Frontin">Engenheiro Paulo de Frontin</option> 
+                        <option class="local_ceja" value="Ilha do Governador">Ilha do Governador</option>      
+                        <option value="Itaguaí">Itaguaí</option>
+                        <option class="local_ceja" value="Italva">Italva</option>                                                                  
+                        <option value="Itaocara">Itaocara</option>        
+                        <option class="local_cederj" value="Itaperuna">Itaperuna</option>    
+                        <option class="local_ceja"  value="Jacarezinho">Jacarezinho</option> 
+                        <option class="local_cederj" value="Macaé">Macaé</option>        
+                        <option class="local_ceja" value="Madureira">Madureira</option>                                
+                        <option class="local_cederj" value="Magé">Magé</option>        
+                        <option class="local_cederj" value="Maracanã">Maracanã</option>        
+                        <option class="local_ceja" value="Maricá">Maricá</option>                                
+                        <option class="local_cederj" value="Miguel Pereira">Miguel Pereira</option>
+                        <option class="local_ceja" value="Miracema">Miracema</option>
+                        <option value="Natividade">Natividade</option>
+                        <option value="Niterói">Niterói</option>
+                        <option value="Nova Friburgo">Nova Friburgo</option>
+                        <option class="local_cederj" value="Nova Iguaçu">Nova Iguaçu</option>
+                        <option class="local_ceja" value="Paciência">Paciência</option>
+                        <option class="local_cederj" value="Paracambi">Paracambi</option>
+                        <option class="local_ceja" value="Parati">Parati</option>
+                        <option value="Petrópolis">Petrópolis</option>
+                        <option class="local_ceja" value="Penha">Penha</option>
+                        <option class="local_ceja" value="Piabetá">Piabetá</option>
+                        <option class="local_cederj" value="Pirai">Pirai</option>
+                        <option class="local_ceja" value="Porciúncula">Porciúncula</option>
+                        <option class="local_cederj" value="Quatis">Quatis</option>
+                        <option class="local_ceja" value="Quissamã">Quissamã</option>
+                        <option value="Resende">Resende</option>
+                        <option value="Rio Bonito">Rio Bonito</option>
+                        <option value="Rio das Flores">Rio das Flores</option>
+                        <option class="local_ceja" value="Rio das Ostras">Rio das Flores</option>
+                        <option value="Rocinha">Rocinha</option>
+                        <option value="Santa Maria Madalena">Santa Maria Madalena</option>
+                        <option class="local_ceja"  value="São Cristovão">São Cristovão</option>
+                        <option value="São Fidélis">São Fidélis</option>
+                        <option class="local_cederj" value="São Francisco do Itabapoana">São Franciso do Itabapoana</option>                        
+                        <option value="São Gonçalo">São Gonçalo</option>
+                        <option class="local_ceja" value="São João de Meriti">São João de Meriti</option>
+                        <option value="São Pedro da Aldeia">São Pedro da Aldeia</option>
+                        <option class="local_ceja" value="Santo Antonio de Padua">Santo Antonio de Padua</option>
+                        <option class="local_ceja"  value="Sapucaia">Sapucaia</option>
+                        <option class="local_cederj"  value="Saquarema">Saquarema</option>
+                        <option class="local_ceja"  value="Seropédica">Seropédica</option>
+                        <option class="local_ceja"  value="Sumidouro">Sumidouro</option>
+                        <option class="local_ceja" value="Teresópolis">Teresópolis</option>
+                        <option value="Três Rios">Três Rios</option>                        
+                        <option class="local_tutoria" value="UERJ">UERJ</option>
+                        <option class="local_tutoria" value="UNIRIO">UNIRIO</option>
+                        <option class="local_tutoria" value="UENF">UENF</option>
+                        <option class="local_tutoria" value="UFF">UFF</option>
+                        <option class="local_tutoria" value="UFRJ">UFRJ</option>
+                        <option class="local_tutoria" value="UFRRJ">UFRRJ</option>                        
+                        <option class="local_ceja" value="Urca">Urca</option>
+                        <option class="local_ceja" value="Valença">Valença</option>
+                        <option class="local_ceja" value="Vassouras">Vassouras</option>
+                        <option class="local_ceja" value="Vila Isabel">Vila Isabel</option>
+                        <option value="Volta Redonda">Volta Redonda</option>
                     <select>
                 </div>
             </div>
-                    
+            
+            <input type="hidden" id="tipo" name="tipo">
+            
+            <div class="form-group">
+                <button type="submit" class="btn btn-success navbar-btn ">Entrar</button> 
+            </div>        
                     
             <!-- ***** fim dos dados para configuração de usuario CEDERJ, CEJA e TUTORIA ***** -->
         </g:form>
+              
+            <!-- ******** fim do formulario de cadastro  ******* -->
+              
+            <!-- ******** inicio do formulario de cadastro  ******* -->
+        <g:form name="formValidar" class="form-horizontal" url="[action:'validar',controller:'usuario']">
+            <div class="form-group">
+                <label class="col-lg-3 control-label">E-mail</label>
+                <div class="col-lg-6">
+                    <g:textField name="email" class="form-control"/>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="col-lg-3 control-label">Senha</label>
+                <div class="col-lg-6">
+                    <g:passwordField name="senha" class="form-control"/>
+                </div>
+            </div>  
+            
+            <div class="form-group">
+                <button type="submit" class="btn btn-success navbar-btn ">Entrar</button> 
+            </div>
+        </g:form>
+              
+              
+            <!-- ******** fim do formulario de cadastro  ******* -->
+              
             
             
       </div>
 
       <div id="rodape">
-        <p>Desenvolvido pelo Departamento de Suporte </p>        
+        <p>Desenvolvido pelo Departamento de Suporte Técnico em Informática </p>        
       </div>      
     </div>
     
-    <!-- BootStrap JS -->
-    <script src="js/bootstrap.min.js"></script>
+    
     <!-- jQuery  -->
-    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="<g:resource dir="js" file="jquery-2.1.1.min.js"/>"></script>
+    <!-- BootStrap JS -->    
+    <script src="<g:resource dir="js" file="bootstrap.min.js"/>"></script>
     
+    <script src="<g:resource dir="js" file="bootstrapValidator.min.js"/>"></script>
     
-    <script>
-        $("document").ready(function(){
-            $("#formValidar").hide();
-            $("#formCadastrar").hide();
-            $("#selecao").hide();
-            
-            $(".botao").click(function(){
-                var decisao = $(this).attr("id")
-                if(decisao == "decideSim"){
-                    $("#selecao").hide();
-                }
-                else{
-                    $("#selecao").show();
-                }
-            });
-            
-            $(".botaos").click(function(){                
-                var local = $(this).attr("tipo");
-                if(local == "ceja" || local == "cederj" || local == "tutoria"){
-                    $(".setor").hide();                    
-                    $(".andar").hide();
-                    $(".sala").hide();
-                    $(".local").show();
-                    $(".funcao").show();
-                    $("#formCadasrar").show();
-                }
-                else if(local == "centro"){       
-                    $(".setor").show();                    
-                    $(".andar").show();
-                    $(".sala").show();
-                    $(".local").hide();
-                    $(".funcao").hide(); 
-                    $("#formCadastrar").show();                    
-                }   
-                else if(local == "museu" || local == "mangueira"){
-                    $(".andar").hide();
-                    $(".sala").hide();
-                    $(".local").hide();
-                    $(".funcao").hide();
-                    $(".setor").show(); 
-                    $("#formCadastrar").show();   
-                }
-                else{
-                    $(".andar").hide();
-                    $(".sala").hide();
-                    $(".local").hide();
-                    $(".funcao").hide();
-                    $(".setor").hide(); 
-                    $("#formCadastrar").show();                  
-                }
-            });
-            
-            function limparCampos(){
-                $("#").val("");
-            }
-        });      
-    </script>    
+    <script src="<g:resource dir="js" file="index.js"/>"></script>
+  
   </body>
 </html>

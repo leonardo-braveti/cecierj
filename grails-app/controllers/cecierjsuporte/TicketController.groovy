@@ -1,6 +1,6 @@
 package cecierjsuporte
 
-class TicketController {
+class IndexController {
     
     
 

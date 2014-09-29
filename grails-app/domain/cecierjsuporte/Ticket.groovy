@@ -2,19 +2,21 @@ package cecierjsuporte
 
 class Ticket {
     
-    String nome;    
-    String email;
-    String telefone;
     String assunto;
     String prioridade;
-    Date data;
-    String tipo;
+    Date data
+    String tipo
+    String local
+    String setor
+    String andar
+    String sala
     
     static mapping = {
         version false
-        tablePerHierarchy false
+        //tablePerHierarchy false
     }
     
     static constraints = {
+        data: new Date()
     }
 }

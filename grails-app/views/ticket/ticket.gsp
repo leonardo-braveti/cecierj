@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -32,7 +32,7 @@
 
       <div id="corpo">        
         
-        <g:form name="registrationForm" class="form-horizontal" url="[action:'salvar',controller:'ticket']" >
+        <g:form name="registrationForm" class="form-horizontal" url="[action:'salvar',controller:'index']" >
 
           <div class="form-group">
             <label class="col-lg-3 control-label">Nome Completo</label>
@@ -189,39 +189,8 @@
 
         });
         
-
-        $('#registrationForm').bootstrapValidator({
         
-          feedbackIcons: {
-            valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
-          },
-          fields: {
-            nome: {
-                message: 'The username is not valid',
-                validators: {
-                    notEmpty: {
-                        message: 'O nome é obrigatório'
-                    },                    
-                    regexp: {
-                        regexp: /^[a-zA-Z ]+$/,
-                        message: 'O nome pode consister apenas de letras'
-                    }                    
-                }
-            },
-            email: {
-                validators: {
-                    notEmpty: {
-                        message: 'O email é obrigatório'
-                    },
-                    emailAddress: {
-                        message: 'O endereço de email não é válido'
-                    }
-                }
-            }            
-          }
-        });
+        
       });
     </script>    
   </body>
