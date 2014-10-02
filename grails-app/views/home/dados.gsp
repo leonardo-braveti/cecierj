@@ -9,7 +9,7 @@
     <!-- BootStrap CSS -->
     <link href="<g:resource dir="css" file="bootstrap.min.css" />" rel="stylesheet">
     <!-- Meu CSS -->
-    <link href="<g:resource dir="css" file="index.css" />" rel="stylesheet">
+    <link href="<g:resource dir="css/home" file="index.css" />" rel="stylesheet">
     
     <link href="<g:resource dir="css" file="bootstrapValidator.min.css" />" rel="stylesheet">
 
@@ -17,7 +17,7 @@
   <body>
     <div id="completo">
       <div id="topo">
-          <img id="banner" src="images/banner_cecierj.png"/>
+          <img id="banner" src="<g:resource dir="images" file="banner_cecierj.png" />"/>
       </div>
 
       <div id="mensagem">
@@ -30,17 +30,12 @@
       
       
       <div id="entrada">
-        <p>
-            Você já possui cadastro no sistema?
-        </p>
-        <button class="btn btn-primary navbar-btn botao" id="decideSim">Sim</button>
-        <button class="btn btn-warning navbar-btn botao" id="decideNao">Não</button>
-        <br>
+        
         
         <p id="login_invalido">
             <g:message code="${flash.message}" />
         </p>
-        <div id="selecao">
+        <!--<div id="selecao">
             <p>
               Onde você está?
             </p>
@@ -51,24 +46,24 @@
             <button type="button" class="btn btn-default navbar-btn botaos" tipo="cederj">CEDERJ</button>
             <button type="button" class="btn btn-default navbar-btn botaos" tipo="ceja">CEJA</button>
             <button type="button" class="btn btn-default navbar-btn botaos" tipo="tutoria">Tutoria</button>                                           
-        </div>
+        </div>-->
         
         <br>
-        <g:form name="formCadastrar" class="form-horizontal" url="[action:'cadastrar',controller:'usuario']">
+        <g:form name="formCadastrar" class="form-horizontal" url="[action:'atualizar',controller:'usuario']">
             
             <!-- ***** inicio dos dados para configuração de usuario CENTRO, MANGUEIRA, SEDE e MUSEU ***** -->
 
             <div class="form-group">
                 <label class="col-lg-3 control-label">Nome</label>
                 <div class="col-lg-6">
-                    <g:textField name="nome" class="form-control"/>
+                    <g:textField name="nome" class="form-control" value="${session.user.nome}" />
                 </div>
             </div>
             
             <div class="form-group">
                 <label class="col-lg-3 control-label">E-mail</label>
                 <div class="col-lg-6">
-                    <g:textField name="email" class="form-control"/>
+                    <g:textField name="email" class="form-control" value="${session.user.email}"/>
                 </div>
             </div>  
             
@@ -89,14 +84,14 @@
             <div class="form-group">
                 <label class="col-lg-3 control-label">Telefone</label>
                 <div class="col-lg-6">
-                    <g:textField name="telefone" class="form-control"/>
+                    <g:textField name="telefone" class="form-control" value="${session.user.telefone}"/>
                 </div>
             </div>
             
             <div class="form-group setor">
                 <label class="col-lg-3 control-label">Departamento / Setor</label>
                 <div class="col-lg-6">
-                    <g:textField name="setor" class="form-control"/>
+                    <g:textField name="setor" class="form-control" value="${session.user.setor}"/>
                 </div>      
             </div>
             
@@ -104,17 +99,18 @@
                 <label class="col-lg-3 control-label">Andar</label>
                 <div class="col-lg-6">
                     <select name="andar" id="andar">
-                        <option class="op_vazio" selected></option>   
-                        <option value="15">15</option>              
+                        <option ></option>   
+                        <option value="15" selected>15</option>              
                         <option value="16">16</option>              
-                    </select>                    
+                    </select>      
+
                 </div>
             </div>
             
             <div class="form-group sala">
                 <label class="col-lg-3 control-label">Sala</label>
                 <div class="col-lg-6">
-                    <select name="sala" id="sala">
+                    <select name="sala" id="sala" >
                         <option class="op_vazio" selected></option> 
                         <g:each var="i" in="${(1..<25)}">
                             <option value=${i}>${i}</option> 
@@ -131,14 +127,14 @@
             <div class="form-group funcao">
                 <label class="col-lg-3 control-label">Função Exercida</label>
                 <div class="col-lg-6">
-                    <g:textField name="funcao" class="form-control"/>
+                    <g:textField name="funcao" class="form-control" value="${session.user.funcao}" />
                 </div>
             </div>
             
             <div class="form-group local">
                 <label class="col-lg-3 control-label">Local</label>
                 <div class="col-lg-6">
-                    <select id="local" name="local">
+                    <select id="local" name="local" >
                         <option class="local_cederj" value="Alemão">Alemão</option>    
                         <option value="Angra dos Reis">Angra dos Reis</option>         
                         <option class="local_ceja" value="Aperibé">Aperibé</option>          
@@ -223,35 +219,10 @@
                 </div>
             </div>
             
-            <input type="hidden" id="tipo" name="tipo">
-            
-            <div class="form-group">
-                <button type="submit" class="btn btn-success navbar-btn ">Entrar</button> 
-            </div>        
+            <input type="hidden" id="tipo" name="tipo" value="${session.user.tipo}">
                     
-            <!-- ***** fim dos dados para configuração de usuario CEDERJ, CEJA e TUTORIA ***** -->
-        </g:form>
-              
-            <!-- ******** fim do formulario de cadastro  ******* -->
-              
-            <!-- ******** inicio do formulario de cadastro  ******* -->
-        <g:form name="formValidar" class="form-horizontal" url="[action:'validar',controller:'usuario']">
             <div class="form-group">
-                <label class="col-lg-3 control-label">E-mail</label>
-                <div class="col-lg-6">
-                    <g:textField name="email" class="form-control"/>
-                </div>
-            </div>
-            
-            <div class="form-group">
-                <label class="col-lg-3 control-label">Senha</label>
-                <div class="col-lg-6">
-                    <g:passwordField name="senha" class="form-control"/>
-                </div>
-            </div>  
-            
-            <div class="form-group">
-                <button type="submit" class="btn btn-success navbar-btn ">Entrar</button> 
+                <button type="submit" class="btn btn-success navbar-btn ">Atualizar</button> 
             </div>
         </g:form>
               
@@ -275,7 +246,39 @@
     
     <script src="<g:resource dir="js" file="bootstrapValidator.min.js"/>"></script>
     
-    <script src="<g:resource dir="js" file="index.js"/>"></script>
+    <script src="<g:resource dir="js/dados" file="dados.js"/>"></script>
+    
+    <script>
+        $("document").ready(function(){
+            tipo  = ${session.user.andar};
+            
+            if(tipo == "cederj"){
+                $(".local_ceja").remove();
+                $(".local_tutoria").remove(); 
+                $("#andar option").val(${session.user.andar});
+                $("#sala option").val(${session.user.sala}); 
+            }
+            else if(tipo="ceja"){
+            
+            }
+            else if(tipo="tutoria"){
+            
+            }
+            else if(tipo ="centro"){
+                $(".local").remove();
+                $(".funcao").remove();                 
+            }
+            else { //mangueira
+            
+            
+            }
+            
+            
+            
+            
+        });
+        
+    </script>
   
   </body>
 </html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Departamento de Suporte Técnico em TI ::: Fundação CECIERJ</title>
+
+    <!-- BootStrap CSS -->
+    <link href="<g:resource dir="css/home" file="bootstrap.min.css" />" rel="stylesheet">
+    <!-- Meu CSS -->
+    <link href="<g:resource dir="css/home" file="index.css" />" rel="stylesheet">
+    
+    <link href="<g:resource dir="css/home" file="bootstrapValidator.min.css" />" rel="stylesheet">
+
+  </head>
+  <body>
+    <div id="completo">
+      <div id="topo">
+          <img src="<g:resource dir="images" file="banner_cecierj.png" />" id="banner"/>
+          
+      </div>
+
+      <div id="mensagem">
+        <p id="titulo"> Departamento de Suporte Técnico em Informática </p>        
+          <ul id="menu">
+              <li><a href="/CecierjSuporte/home/novo">Criar Novo Ticket</a></li>
+              <li><a href="/CecierjSuporte/home/aberto">Tickets em Aberto</a></li>
+              <li><a href="/CecierjSuporte/home/historico">Histórico de Tickets</a></li>
+              <li><a href="/CecierjSuporte/home/dados">Meus Dados</a></li>
+              <li><a href="/CecierjSuporte/home/sair">Sair</a></li>
+          </ul>        
+      </div>
+      
+      
+      <div id="entrada">
+            <p>
+                Bem Vindo <span class="meus_dados">${session.user.nome}<span>
+            <p>            
+                
+      </div>
+
+      <div id="rodape">
+        <p>Desenvolvido pelo Departamento de Suporte Técnico em Informática </p>        
+      </div>      
+    </div>
+    
+    
+    <!-- jQuery  -->
+    <script src="<g:resource dir="js" file="jquery-2.1.1.min.js"/>"></script>
+    <!-- BootStrap JS -->    
+    <script src="<g:resource dir="js" file="bootstrap.min.js"/>"></script>
+    
+    <script src="<g:resource dir="js" file="bootstrapValidator.min.js"/>"></script>
+    
+    <script src="<g:resource dir="js" file="index.js"/>"></script>
+  
+  </body>
+</html>

@@ -17,8 +17,7 @@ class Usuario {
     static mapping = {
         version false
     }
-   
-
+  
     static constraints = {      
         email unique: true
         funcao nullable: true
@@ -28,4 +27,6 @@ class Usuario {
         sala nullable: true
         setor nullable: true
     }
+    
+    static hasMany = [tickets : Ticket]
 }

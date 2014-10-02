@@ -4,19 +4,26 @@ class Ticket {
     
     String assunto;
     String prioridade;
+    String descricao
     Date data
-    String tipo
+    Usuario usuario
+    String status
+    //Especialista especialista
+    //String IP
+    /*String tipo
     String local
     String setor
     String andar
-    String sala
+    String sala*/
+    
     
     static mapping = {
-        version false
-        //tablePerHierarchy false
-    }
+        version false        
+    }    
     
-    static constraints = {
-        data: new Date()
-    }
+    static belongsTo = Usuario
+    
+    
+    
+    
 }

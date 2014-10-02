@@ -1,38 +1,20 @@
 package cecierjsuporte
 
-class IndexController {
+class TicketController {
     
-    
-
     def novo() {
        render(view : "ticket")
     }
     
     def salvar(){
-        def dados = params
+        params.data = new Date();
+        params.status = "aberto"
+        def ticket = new Ticket(params)       
+        ticket.usuario = session.user
         
-        //def locais = ["local_ce"]
         
-        
-        if(dados.tipo == "centro")
-            salvarTicketInterno(dados)
-        else
-            salvarTicketExterno(dados)
-    }
-    
-    def salvarTicketInterno(params){
-        def ticket  = new TicketInterno(params);        
-        ticket.setData(new Date());            
-        def id =  ticket.save(flush: true)      
-        
-        render id
-    }
-    
-    def salvarTicketExterno(params){
-        def ticket  = new TicketExterno(params);        
-        ticket.setData(new Date());    
-        
-        def id =  ticket.save(flush: true)
-        render id
-    }
+        ticket.save(failOnError: true);        
+        redirect(uri: "/home/aberto")
+    }    
 }
+

@@ -1,6 +1,6 @@
 package cecierjsuporte
 
-class Tecnico {
+class Tecnico extends Especialista{
 
     static constraints = {
     }
