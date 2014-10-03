@@ -23,8 +23,7 @@
       <div id="mensagem">
         <p id="titulo"> Departamento de Suporte Técnico em Informática </p>
         <p id="texto"> 
-          Para agilizar as solicitações e melhor atendê-lo, o Departamento de Suporte está disponibilizando o Cecierj Ticket. 
-          Para cada pedido, é gerdo um  número único para que você possa monitorar o status da solicitação.
+            <g:render template="menu" /> 
         </p>
       </div>
       
@@ -97,7 +96,7 @@
             
             <div class="form-group andar">
                 <label class="col-lg-3 control-label">Andar</label>
-                <div class="col-lg-6">
+                <div class="col-lg-6">                    
                     <select name="andar" id="andar">
                         <option ></option>   
                         <option value="15" selected>15</option>              
@@ -250,28 +249,133 @@
     
     <script>
         $("document").ready(function(){
-            tipo  = ${session.user.andar};
-            
+            tipo  = "${session.user.tipo}";
+                        
             if(tipo == "cederj"){
                 $(".local_ceja").remove();
-                $(".local_tutoria").remove(); 
-                $("#andar option").val(${session.user.andar});
-                $("#sala option").val(${session.user.sala}); 
+                $(".local_tutoria").remove();                 
             }
-            else if(tipo="ceja"){
+            else if(tipo == "ceja"){
             
             }
-            else if(tipo="tutoria"){
+            else if(tipo == "tutoria"){
             
             }
-            else if(tipo ="centro"){
+            else if(tipo == "centro"){
                 $(".local").remove();
-                $(".funcao").remove();                 
+                $(".funcao").remove(); 
+                $("#andar option").each(function(){                    
+                    if($(this).val() == ${session.user.andar}){
+                        $(this).attr("selected", "selected");
+                    }
+                });
+                $("#sala option").each(function(){                    
+                    if($(this).val() == ${session.user.sala}){
+                        $(this).attr("selected", "selected");
+                    }
+                });                
             }
             else { //mangueira
             
             
             }
+            
+            $('#formCadastrar').bootstrapValidator({
+        
+                feedbackIcons: {
+                    valid: 'glyphicon glyphicon-ok',
+                    invalid: 'glyphicon glyphicon-remove',
+                    validating: 'glyphicon glyphicon-refresh'
+                },
+                fields: {
+                    nome: {
+                        message: 'Este nome não é valido',
+                        validators: {
+                            notEmpty: {
+                                message: 'O nome é obrigatório'
+                            },                    
+                            regexp: {
+                                regexp: /^[a-zA-Z ]+$/,
+                                message: 'O nome pode consister apenas de letras'
+                            }                    
+                        }
+                    },
+                    email: {
+                        validators: {
+                            notEmpty: {
+                                message: 'O email é obrigatório'
+                            },
+                            emailAddress: {
+                                message: 'O endereço de email não é válido'
+                            }
+                        }
+                    },
+                    senha: {
+                        validators: {
+                            notEmpty: {
+                                message: 'A senha é obrigatória'
+                            },
+                            identical: {
+                                field: 'rsenha',
+                                message: 'A senha informada e a sua validação não são iguais'
+                            }
+                        }
+                    },
+                    rsenha:{
+                        validators: {
+                            notEmpty: {
+                                message: 'A confirmação da senha é obrigatória'
+                            },
+                            identical: {
+                                field: 'senha',
+                                message: 'A senha informada e a sua validação não são iguais'
+                            }
+                        }
+                    },
+                    telefone:{
+                        validators: {
+                            notEmpty: {
+                                message: 'O telefone é obrigatório'
+                            }
+                        }
+                    },
+                    setor:{
+                        validators: {
+                            notEmpty: {
+                                message: 'O campo departamento / setor é obrigatório'
+                            }
+                        }
+                    },
+                    funcao:{
+                        validators: {
+                            notEmpty: {
+                                message: 'A função deve ser informada'
+                            }
+                        }
+                    },
+                    local:{
+                        validators: {
+                            notEmpty: {
+                                message: 'O local deve ser informado'
+                            }
+                        }
+                    },                    
+                    andar:{
+                        validators: {
+                            notEmpty: {
+                                message: 'O andar deve ser informado'
+                            }
+                        }
+                    },                    
+                    sala:{
+                        validators: {
+                            notEmpty: {
+                                message: 'A sala deve ser informada'
+                            }
+                        }
+                    }
+                }
+            });
             
             
             

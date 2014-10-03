@@ -6,7 +6,7 @@
 
 
 $("document").ready(function(){
-            $("#formValidar").hide();
+            /*$("#formValidar").hide();
             $("#formCadastrar").hide();
             $("#selecao").hide();
             
@@ -103,102 +103,7 @@ $("document").ready(function(){
                         $(this).show();                        
                     }
                 });  
-            }
+            }*/
             
-            $('#formCadastrar').bootstrapValidator({
-        
-                feedbackIcons: {
-                    valid: 'glyphicon glyphicon-ok',
-                    invalid: 'glyphicon glyphicon-remove',
-                    validating: 'glyphicon glyphicon-refresh'
-                },
-                fields: {
-                    nome: {
-                        message: 'Este nome não é valido',
-                        validators: {
-                            notEmpty: {
-                                message: 'O nome é obrigatório'
-                            },                    
-                            regexp: {
-                                regexp: /^[a-zA-Z ]+$/,
-                                message: 'O nome pode consister apenas de letras'
-                            }                    
-                        }
-                    },
-                    email: {
-                        validators: {
-                            notEmpty: {
-                                message: 'O email é obrigatório'
-                            },
-                            emailAddress: {
-                                message: 'O endereço de email não é válido'
-                            }
-                        }
-                    },
-                    senha: {
-                        validators: {
-                            notEmpty: {
-                                message: 'A senha é obrigatória'
-                            },
-                            identical: {
-                                field: 'rsenha',
-                                message: 'A senha informada e a sua validação não são iguais'
-                            }
-                        }
-                    },
-                    rsenha:{
-                        validators: {
-                            notEmpty: {
-                                message: 'A confirmação da senha é obrigatória'
-                            },
-                            identical: {
-                                field: 'senha',
-                                message: 'A senha informada e a sua validação não são iguais'
-                            }
-                        }
-                    },
-                    telefone:{
-                        validators: {
-                            notEmpty: {
-                                message: 'O telefone é obrigatório'
-                            }
-                        }
-                    },
-                    setor:{
-                        validators: {
-                            notEmpty: {
-                                message: 'O campo departamento / setor é obrigatório'
-                            }
-                        }
-                    },
-                    funcao:{
-                        validators: {
-                            notEmpty: {
-                                message: 'A função deve ser informada'
-                            }
-                        }
-                    },
-                    local:{
-                        validators: {
-                            notEmpty: {
-                                message: 'O local deve ser informado'
-                            }
-                        }
-                    },                    
-                    andar:{
-                        validators: {
-                            notEmpty: {
-                                message: 'O andar deve ser informado'
-                            }
-                        }
-                    },                    
-                    sala:{
-                        validators: {
-                            notEmpty: {
-                                message: 'A sala deve ser informada'
-                            }
-                        }
-                    }
-                }
-            });
+            
         });      
