@@ -42,7 +42,7 @@
                             <th>Assunto</th>
                             <th>Descrição</th>
                             <th>Prioridade</th>
-                            <th>Data</th>
+                            <th>Abertura</th>
                             <th>Responsável</th>
                         </tr>
                     </thead>
@@ -52,7 +52,7 @@
                             <th>Assunto</th>
                             <th>Descrição</th>
                             <th>Prioridade</th>
-                            <th>Data</th>                            
+                            <th>Abertura</th>                  
                             <th>Responsável</th>
                         </tr>
                     </tfoot>
@@ -63,8 +63,8 @@
                             <td><p>${it.assunto}</p></td>
                             <td><p>${it.descricao}</p></td>
                             <td><p>${it.prioridade}</p></td>
-                            <td><p>${it.data}</p></td>
-                            <td><p>${it.usuario.nome}</p></td>                            
+                            <td><p>${it.abertura}</p></td>
+                            <td><p></p></td>                            
                     </g:each>
                      </tbody>
                 </table>

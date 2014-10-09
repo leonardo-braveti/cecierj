@@ -2,7 +2,7 @@ package cecierjsuporte
 
 class UsuarioController {
 
-    def validar() {
+    def validar_usuario() {
         def usuario = Usuario.findByEmailAndSenha(params.email,params.senha);
         
         if(usuario){                    
@@ -10,12 +10,32 @@ class UsuarioController {
             redirect(controller: "home", action: "index")
         }
         else{
-            flash.message = "Nome de Usuário e/ou Login Inválidos"
+            flash.message = "E-mail e/ou senha inválidos"
             redirect(url: "/")           
         }
     }
     
+    def validar_especialista() {
+        def usuario = Usuario.findByEmailAndSenha(params.email,params.senha);
+        
+         if(usuario){                    
+            if(usuario.perfil != "usuario"){
+                session.espec = usuario
+                redirect(url: "/admin/home")                        
+            }
+            else{
+                 flash.message = "Você não possui perfil para acessar a area administrativa"
+            redirect(url: "/admin")  
+            }
+        }
+        else{
+            flash.message = "E-mail e/ou senha inválidos"
+            redirect(url: "/admin")           
+        }
+    }
+    
     def cadastrar(){
+        params.perfil = "usuario"
         def usuario = new Usuario(params)        
         
         if(params.senha == params.rsenha){            
@@ -31,8 +51,7 @@ class UsuarioController {
     
     def atualizar(){        
         def u = Usuario.get(session.user.id)        
-        //render u.sala
-        //render params.sala        
+        
         u.nome = params.nome
         u.email = params.email
         u.senha = params.senha    
@@ -49,12 +68,18 @@ class UsuarioController {
         if(session.user.tipo == "ceja" || session.user.tipo == "cederj" || session.user.tipo == "tutoria"){        
             u.funcao = params.funcao            
             u.local = params.local            
-        }
-        
+        }        
         
         u.save(flush: true)     
         session.user = u
         flash.message = "Dados atualizados com sucesso"
-        redirect(url: "/home/")
+        redirect(url: "/home/")        
+    }
+    
+    def mudar_perfil(){
+        def u = Usuario.get(params.form_id);   
+        u.perfil = params.form_perf_novo
+        u.save(flush:true)
+        redirect(url: "/admin/usuarios")   
     }
 }

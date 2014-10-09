@@ -1,0 +1,28 @@
+@import url("../estilo.css");
+
+#titulo{
+    font-size: 20px;
+    font-family: "Verdana";
+}
+
+.texto{
+
+}
+
+#login_invalido{
+    background-color: black;
+    color: white;    
+}
+
+#entrada{
+    margin:0 auto;
+    position: relative;	
+    padding-top: 20px;	
+    width:60%;
+}
+#entrada button{
+    width:100px;
+}
+#rodape{
+    padding-top: 50px;
+}

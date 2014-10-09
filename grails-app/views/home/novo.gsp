@@ -51,10 +51,17 @@
                 </div>
               </div>
           
-              <div class="form-group">
+            <div class="form-group">
                 <label class="col-lg-3 control-label">Descrição do Problema</label>
                 <div class="col-lg-6">                
                     <textarea rows="6" placeholder="Descreva o serviço a ser realizado" class="form-control" name="descricao"></textarea>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="col-lg-3 control-label">Endereço IP</label>
+                <div class="col-lg-6">                
+                    <input type="text" class="form-control" name="ip" readonly="readonly" value="${ip}"  />
                 </div>
             </div>
 

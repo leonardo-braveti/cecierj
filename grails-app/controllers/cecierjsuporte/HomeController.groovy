@@ -7,13 +7,20 @@ class HomeController {
         // carrega a pagina home/index.gsp
     }
     def novo(){
-        
+        def ip = request.remoteAddr 
+        render(view: "novo", model: [ip: ip])
     }
     
     def aberto(){
         def usuario = session.user 
-        def abertos = Ticket.findAllByStatusAndUsuario("aberto", usuario)        
+        def abertos = Ticket.findAllByStatusAndDono("aberto", usuario)        
         render(view: "aberto", model: [tickets: abertos])
+    }
+    
+    def historico(){
+        def usuario = session.user 
+        def finalizados = Ticket.findAllByStatusAndDono("finalizado", usuario)        
+        render(view: "finalizado", model: [tickets: finalizados])
     }
     
     def dados(){

@@ -235,7 +235,7 @@
             <!-- ******** fim do formulario de cadastro  ******* -->
               
             <!-- ******** inicio do formulario de cadastro  ******* -->
-        <g:form name="formValidar" class="form-horizontal" url="[action:'validar',controller:'usuario']">
+        <g:form name="formValidar" class="form-horizontal" url="[action:'validar_usuario',controller:'usuario']">
             <div class="form-group">
                 <label class="col-lg-3 control-label">E-mail</label>
                 <div class="col-lg-6">

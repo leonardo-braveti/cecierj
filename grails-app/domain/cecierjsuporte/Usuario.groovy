@@ -13,6 +13,7 @@ class Usuario {
     String setor
     String andar
     String sala
+    String perfil
     
     static mapping = {
         version false
@@ -29,4 +30,5 @@ class Usuario {
     }
     
     static hasMany = [tickets : Ticket]
+    static mappedBy = [tickets: "dono"]
 }

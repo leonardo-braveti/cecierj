@@ -7,11 +7,11 @@
     <title>Departamento de Suporte Técnico em TI ::: Fundação CECIERJ</title>
 
     <!-- BootStrap CSS -->
-    <link href="<g:resource dir="css/home" file="bootstrap.min.css" />" rel="stylesheet">
+    <link href="<g:resource dir="css" file="bootstrap.min.css" />" rel="stylesheet">
     <!-- Meu CSS -->
     <link href="<g:resource dir="css/home" file="index.css" />" rel="stylesheet">
     
-    <link href="<g:resource dir="css/home" file="bootstrapValidator.min.css" />" rel="stylesheet">
+    <link href="<g:resource dir="css" file="bootstrapValidator.min.css" />" rel="stylesheet">
 
   </head>
   <body>
