@@ -11,7 +11,6 @@ class Ticket {
     Usuario responsavel
     String status    
     String ip
-    Tarefa tarefas
     
     /*String tipo
     String local

@@ -28,22 +28,26 @@ class TicketController {
         redirect(uri: "/admin/abertos")
     }
     
-    def registrarTrabalho(){
-        /*String[] dizeres = params.tarefa.split(",")
-        render dizeres[0]
-        render dizeres[1]*/
+    def registrarTrabalho(){                        
         
-        def ticket = Ticket.get(params.numero)
-        (params.tarefa).each(){
-            def tarefa = new Tarefa()
-            tarefa.descricao = "${it}"
+        if(!params.descricao.equals("")){        
+            def ticket = Ticket.get(params.id)
+            def tarefa = new Tarefa()         
+            tarefa.descricao = params.descricao        
             tarefa.data = new Date()
             tarefa.ticket = ticket
-            tarefa.save(flush:true)            
+            tarefa.save(flush:true)          
         }
+        
+        if(params.concluir == "sim"){
+            def ticket = Ticket.get(params.id)
+            ticket.status = "fechado"
+            ticket.encerramento = new Date()
+            ticket.save(flush:true)          
+        }
+            
         flash.message = "Tarefas do ticket "+params.numero+" registradas com sucesso"
         redirect(uri: "/admin/andamento")
-        
     }
 }
 

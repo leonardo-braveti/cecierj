@@ -1,4 +1,4 @@
-package cecierjsuporte
+ package cecierjsuporte
 
 class HomeController {
 
@@ -15,6 +15,12 @@ class HomeController {
         def usuario = session.user 
         def abertos = Ticket.findAllByStatusAndDono("aberto", usuario)        
         render(view: "aberto", model: [tickets: abertos])
+    }
+    
+    def andamento(){
+        def usuario = session.user 
+        def andamento = Ticket.findAllByStatusAndDono("andamento", usuario)        
+        render(view: "andamento", model: [tickets: andamento])
     }
     
     def historico(){

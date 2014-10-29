@@ -9,7 +9,7 @@
     <!-- BootStrap CSS -->
     <link href="<g:resource dir="css" file="bootstrap.min.css" />" rel="stylesheet">
     <!-- Meu CSS -->
-    <link href="<g:resource dir="css/admin" file="aberto.css" />" rel="stylesheet">
+    <link href="<g:resource dir="css/admin" file="admin.css" />" rel="stylesheet">
     
     <link href="<g:resource dir="css" file="bootstrapValidator.min.css" />" rel="stylesheet">
     
@@ -24,12 +24,12 @@
       </div>
 
       <div id="mensagem">
-        <p id="titulo"> Departamento de Suporte Técnico em Informática </p>        
+        <p id="titulo_admin"> Departamento de Suporte Técnico em Informática </p>
           <g:render template="menu" />     
       </div>
       
       
-      <div id="entrada">
+      <div id="historico_entrada">
             <p>
                 Bem Vindo <span class="meus_dados">${session.espec.nome}<span>
             <p>   
@@ -69,8 +69,8 @@
                             <td><p>${it.descricao}</p></td>
                             <td><p>${it.prioridade}</p></td>
                             <td><p>${it.abertura}</p></td>
-                            <td><p>${it.fechamento}</p></td>
-                            <td><p>${it.${it.responsavel.nome}</p></td>                            
+                            <td><p>${it.encerramento}</p></td>
+                            <td><p>${it.responsavel.nome}</p></td>                            
                     </g:each>
                      </tbody>
                 </table>

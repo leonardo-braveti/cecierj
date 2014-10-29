@@ -38,3 +38,13 @@ body{
 #rodape{
     padding-top: 50px;
 }
+
+// ****************************** admin****************************
+
+
+#login_invalido{
+    background-color: #9CF;
+    color: black;    
+    font-family: "Verdana";
+    font-size: 15px;
+}

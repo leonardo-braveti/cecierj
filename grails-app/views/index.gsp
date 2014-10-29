@@ -140,32 +140,32 @@
                 <div class="col-lg-6">
                     <select id="local" name="local">
                         <option class="local_cederj" value="Alemão">Alemão</option>    
-                        <option value="Angra dos Reis">Angra dos Reis</option>         
+                        <option class="" value="Angra dos Reis">Angra dos Reis</option>         
                         <option class="local_ceja" value="Aperibé">Aperibé</option>          
                         <option class="local_ceja" value="Araruama">Araruama</option>          
                         <option class="local_ceja" value="Arrail do Cabo">Arrail do Cabo</option>              
-                        <option value="Barra do Piraí">Barra do Piraí</option>
+                        <option class="" value="Barra do Piraí">Barra do Piraí</option>
                         <option class="local_ceja" value="Barra Mansa">Barra Mansa</option>
-                        <option value="Belford Roxo">Belford Roxo</option>
+                        <option class="" value="Belford Roxo">Belford Roxo</option>
                         <option class="local_ceja" value="Bom Jardim">Bom Jardim</option>              
-                        <option value="Bom Jesus do Itapaboana">Bom Jesus do Itapaboana</option>
+                        <option class="" value="Bom Jesus do Itapaboana">Bom Jesus do Itapaboana</option>
                         <option class="local_ceja" value="Cambuci">Cambuci</option>              
-                        <option value="Campo Grande">Campo Grande</option>
+                        <option class="" value="Campo Grande">Campo Grande</option>
                         <option class="local_ceja" value="Campos dos Goytacazes">Campos dos Goytacazes</option>
-                        <option value="Cantagalo">Cantagalo</option>    
+                        <option class="" value="Cantagalo">Cantagalo</option>    
                         <option class="local_ceja" value="Carmo">Carmo</option>    
                         <option class="local_ceja" value="Casimiro de Abreu">Casimiro de Abreu</option>    
                         <option class="local_ceja" value="Conceição de Macabu">Conceição de Macabu</option>              
                         <option class="local_ceja" value="Copacana">Copacabana</option>    
                         <option class="local_ceja" value="Copacana">Cordeiro</option>    
                         <option class="local_ceja" value="Duas Barras">Duas Barras</option>    
-                        <option value="Duque de Caxias">Duque de Caxias</option>    
+                        <option class="" value="Duque de Caxias">Duque de Caxias</option>    
                         <option class="local_ceja" value="Conceição de Macabu">Conceição de Macabu</option>              
                         <option class="local_ceja" value="Engenheiro Paulo de Frontin">Engenheiro Paulo de Frontin</option> 
                         <option class="local_ceja" value="Ilha do Governador">Ilha do Governador</option>      
-                        <option value="Itaguaí">Itaguaí</option>
+                        <option class="" value="Itaguaí">Itaguaí</option>
                         <option class="local_ceja" value="Italva">Italva</option>                                                                  
-                        <option value="Itaocara">Itaocara</option>        
+                        <option class="" value="Itaocara">Itaocara</option>        
                         <option class="local_cederj" value="Itaperuna">Itaperuna</option>    
                         <option class="local_ceja"  value="Jacarezinho">Jacarezinho</option> 
                         <option class="local_cederj" value="Macaé">Macaé</option>        
@@ -175,39 +175,39 @@
                         <option class="local_ceja" value="Maricá">Maricá</option>                                
                         <option class="local_cederj" value="Miguel Pereira">Miguel Pereira</option>
                         <option class="local_ceja" value="Miracema">Miracema</option>
-                        <option value="Natividade">Natividade</option>
-                        <option value="Niterói">Niterói</option>
-                        <option value="Nova Friburgo">Nova Friburgo</option>
+                        <option class="" value="Natividade">Natividade</option>
+                        <option class="" value="Niterói">Niterói</option>
+                        <option class="" value="Nova Friburgo">Nova Friburgo</option>
                         <option class="local_cederj" value="Nova Iguaçu">Nova Iguaçu</option>
                         <option class="local_ceja" value="Paciência">Paciência</option>
                         <option class="local_cederj" value="Paracambi">Paracambi</option>
                         <option class="local_ceja" value="Parati">Parati</option>
-                        <option value="Petrópolis">Petrópolis</option>
+                        <option class="" value="Petrópolis">Petrópolis</option>
                         <option class="local_ceja" value="Penha">Penha</option>
                         <option class="local_ceja" value="Piabetá">Piabetá</option>
                         <option class="local_cederj" value="Pirai">Pirai</option>
                         <option class="local_ceja" value="Porciúncula">Porciúncula</option>
                         <option class="local_cederj" value="Quatis">Quatis</option>
                         <option class="local_ceja" value="Quissamã">Quissamã</option>
-                        <option value="Resende">Resende</option>
-                        <option value="Rio Bonito">Rio Bonito</option>
-                        <option value="Rio das Flores">Rio das Flores</option>
+                        <option class="" value="Resende">Resende</option>
+                        <option class="" value="Rio Bonito">Rio Bonito</option>
+                        <option class="" value="Rio das Flores">Rio das Flores</option>
                         <option class="local_ceja" value="Rio das Ostras">Rio das Flores</option>
-                        <option value="Rocinha">Rocinha</option>
-                        <option value="Santa Maria Madalena">Santa Maria Madalena</option>
+                        <option class="" value="Rocinha">Rocinha</option>
+                        <option class="" value="Santa Maria Madalena">Santa Maria Madalena</option>
                         <option class="local_ceja"  value="São Cristovão">São Cristovão</option>
-                        <option value="São Fidélis">São Fidélis</option>
+                        <option class="" value="São Fidélis">São Fidélis</option>
                         <option class="local_cederj" value="São Francisco do Itabapoana">São Franciso do Itabapoana</option>                        
-                        <option value="São Gonçalo">São Gonçalo</option>
+                        <option class="" value="São Gonçalo">São Gonçalo</option>
                         <option class="local_ceja" value="São João de Meriti">São João de Meriti</option>
-                        <option value="São Pedro da Aldeia">São Pedro da Aldeia</option>
+                        <option class="" value="São Pedro da Aldeia">São Pedro da Aldeia</option>
                         <option class="local_ceja" value="Santo Antonio de Padua">Santo Antonio de Padua</option>
                         <option class="local_ceja"  value="Sapucaia">Sapucaia</option>
                         <option class="local_cederj"  value="Saquarema">Saquarema</option>
                         <option class="local_ceja"  value="Seropédica">Seropédica</option>
                         <option class="local_ceja"  value="Sumidouro">Sumidouro</option>
                         <option class="local_ceja" value="Teresópolis">Teresópolis</option>
-                        <option value="Três Rios">Três Rios</option>                        
+                        <option class="" value="Três Rios">Três Rios</option>                        
                         <option class="local_tutoria" value="UERJ">UERJ</option>
                         <option class="local_tutoria" value="UNIRIO">UNIRIO</option>
                         <option class="local_tutoria" value="UENF">UENF</option>

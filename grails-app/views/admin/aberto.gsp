@@ -8,8 +8,8 @@
 
     <!-- BootStrap CSS -->
     <link href="<g:resource dir="css" file="bootstrap.min.css" />" rel="stylesheet">
-    <!-- Meu CSS -->
-    <link href="<g:resource dir="css/admin" file="aberto.css" />" rel="stylesheet">
+    <!-- Meu CSS -->    
+    <link href="<g:resource dir="css/admin" file="admin.css" />" rel="stylesheet">
     
     <link href="<g:resource dir="css" file="bootstrapValidator.min.css" />" rel="stylesheet">
     
@@ -24,12 +24,12 @@
       </div>
 
       <div id="mensagem">
-        <p id="titulo"> Departamento de Suporte Técnico em Informática </p>        
+        <p id="titulo_admin"> Departamento de Suporte Técnico em Informática </p>
           <g:render template="menu" />     
       </div>
       
       
-      <div id="entrada">
+      <div id="abertos_entrada">
             <p>
                 Bem Vindo <span class="meus_dados">${session.espec.nome}<span>
             <p>   
@@ -40,6 +40,8 @@
                         <tr>
                             <th>#</th>
                             <th>Criador</th>
+                            <th>Departamento</th>
+                            <th>Local</th>
                             <th>Assunto</th>
                             <th>Descrição</th>
                             <th>Prioridade</th>
@@ -52,6 +54,8 @@
                         <tr>
                             <th>#</th>
                             <th>Criador</th>
+                            <th>Departamento</th>
+                            <th>Local</th>
                             <th>Assunto</th>
                             <th>Descrição</th>
                             <th>Prioridade</th>
@@ -65,6 +69,8 @@
                         <tr id="l${i}">
                             <td><p>${item.id}</p></td>
                             <td><p>${item.dono.nome}</p></td>
+                            <td><p>${item.dono.setor}</p></td>
+                            <td><p>${item.dono.tipo}</p></td>
                             <td><p>${item.assunto}</p></td>
                             <td><p>${item.descricao}</p></td>
                             <td><p>${item.prioridade}</p></td>

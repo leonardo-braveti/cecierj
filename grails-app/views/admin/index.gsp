@@ -9,7 +9,7 @@
     <!-- BootStrap CSS -->
     <link href="<g:resource dir="css" file="bootstrap.min.css" />" rel="stylesheet">
     <!-- Meu CSS -->
-    <link href="<g:resource dir="css/admin" file="index.css" />" rel="stylesheet">
+    <link href="<g:resource dir="css/admin" file="admin.css" />" rel="stylesheet">
     
     <link href="<g:resource dir="css" file="bootstrapValidator.min.css" />" rel="stylesheet">
 
@@ -21,7 +21,7 @@
       </div>
 
       <div id="mensagem">
-        <p id="titulo"> Departamento de Suporte Técnico em Informática </p>
+        <p id="titulo_admin"> Departamento de Suporte Técnico em Informática </p>
         <p id="texto"> 
          Area administrativa
         </p>

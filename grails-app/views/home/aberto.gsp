@@ -42,8 +42,7 @@
                             <th>Assunto</th>
                             <th>Descrição</th>
                             <th>Prioridade</th>
-                            <th>Abertura</th>
-                            <th>Responsável</th>
+                            <th>Abertura</th>                            
                         </tr>
                     </thead>
                     <tfoot>
@@ -52,8 +51,7 @@
                             <th>Assunto</th>
                             <th>Descrição</th>
                             <th>Prioridade</th>
-                            <th>Abertura</th>                  
-                            <th>Responsável</th>
+                            <th>Abertura</th>                                              
                         </tr>
                     </tfoot>
                      <tbody>
@@ -63,8 +61,7 @@
                             <td><p>${it.assunto}</p></td>
                             <td><p>${it.descricao}</p></td>
                             <td><p>${it.prioridade}</p></td>
-                            <td><p>${it.abertura}</p></td>
-                            <td><p></p></td>                            
+                            <td><p>${it.abertura}</p></td>                            
                     </g:each>
                      </tbody>
                 </table>

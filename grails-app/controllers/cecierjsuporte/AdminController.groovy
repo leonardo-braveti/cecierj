@@ -12,17 +12,25 @@ class AdminController {
         render(view: "aberto", model: [tickets: tickets, tecnicos: tecnicos])
     }
     
+    
     def andamento(){
-        def tickets = Ticket.findAllByStatus("andamento")
-        render tickets.each(){
-            render "${it.tarefas.descricao}"
-        }
-        //render(view: "andamento", model: [tickets: tickets])
+        def tickets = Ticket.findAllByStatus("andamento")        
+        render(view: "andamento", model: [tickets: tickets])
     }
     
+    def registro(Long id){        
+        def ticket = Ticket.get(id)        
+        render(view: "registro", model: [ticket: ticket])
+    }
+    
+    
     def historico(){
-        def tickets = Ticket.findAllByStatus("finalizado")
+        def tickets = Ticket.findAllByStatus("fechado")
         render(view: "historico", model: [tickets: tickets])
+    }
+    
+    def dados(){
+        
     }
     
     def usuarios(){

@@ -37,10 +37,10 @@ $("document").ready(function(){
                     if(local == "ceja"){
                         configurarParaCeja()
                     }
-                    else if(local == "cederj"){
+                    if(local == "cederj"){
                         configurarParaCederj()
                     }
-                    else{                        
+                    if(local == "tutoria"){                        
                         configurarParaTutoria();
                     }
                 }
@@ -100,24 +100,22 @@ $("document").ready(function(){
                 $(".local_cederj").show();    
                 mostrarCamposComuns()
             }
-            function configurarParaTutoria(){                
-                $(".local_ceja").hide();
-                $(".local_tutoria").show(); 
-                $(".local_cederj").hide();   
+            function configurarParaTutoria(){ 
                 esconderCamposComuns();
-                                              
+                $(".local_ceja").hide();                
+                $(".local_cederj").hide();                    
+                $(".local_tutoria").show();                
             }
             function esconderCamposComuns(){
                 $("select option").each(function() {                    
-                    if($(this).attr("class") == null){
+                    if($(this).attr("class") == ""){                        
                         $(this).hide();                        
                     }
                 });  
-            }
-            
+            }            
             function mostrarCamposComuns(){
                 $("select option").each(function() {                    
-                    if($(this).attr("class") == null){
+                    if($(this).attr("class") == ""){
                         $(this).show();                        
                     }
                 });  
