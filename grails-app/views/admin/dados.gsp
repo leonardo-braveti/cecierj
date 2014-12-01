@@ -22,10 +22,12 @@
       </div>
 
       <div id="mensagem">
-        <p id="titulo_admin"> Departamento de Suporte Técnico em Informática </p>
-        <g:render template="menu" />         
+        <p id="titulo_admin"> Departamento de Suporte Técnico em Informática </p>             
       </div>
       
+      <div id="barra_menu">
+        <g:render template="menu" />    
+      </div>
       
       <div id="entrada">
             <p>

@@ -13,7 +13,7 @@
     
     <link href="<g:resource dir="css" file="bootstrapValidator.min.css" />" rel="stylesheet">
     
-    <link href="<g:resource dir="css" file="jquery.dataTables.min2.css" />" rel="stylesheet">
+    <link href="<g:resource dir="css" file="jquery.dataTables.min.css" />" rel="stylesheet">
 
   </head>
   <body>

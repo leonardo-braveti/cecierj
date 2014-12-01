@@ -23,7 +23,7 @@
       <div id="mensagem">
         <p id="titulo_admin"> Departamento de Suporte Técnico em Informática </p>
         <p id="texto"> 
-         Area administrativa
+            Area administrativa
         </p>
       </div>
       

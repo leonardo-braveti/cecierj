@@ -12,39 +12,43 @@
     font-family: "Verdana";
 }
 
+/* ****************************** MENU **************************** */
+#barra_menu{
+    width: 65%;
+    background-color: #06C;
+    margin: 0 auto;
+    position: relative;
+    border-style: solid;
+    border-width: medium;
+}
 #menu_admin { 
-    margin: 0; /* retira o recuo para alguns browsers */
-    padding:0; /* retira o recuo para outros browsers */
-    list-style-type: none; /* retira o marcador de listas*/         
+    margin: 0; 
+    padding:0; 
+    list-style-type: none; 
+    
 }
 
-#menu_admin li{
-    border-bottom:1px solid #a4a0f5;     /* coloca uma  borda azul entre links */   
-    display: inline;    
-    min-width: 400px;    
+#menu_admin li{      
+    display: inline;             
+    padding:0 10px;            
 }
-#menu_admin li a{
-    text-decoration: none; /* retira o sublinhado dos links */ 
+
+#menu_admin li a{    
+    color: white;        
+    font-family: Verdana;
+    font-size: 16px;
 }
 
 #menu_admin li a:link {
-    text-decoration: none; /* retira o sublinhado dos links */ 
-    font-family: Geneva, Arial, Helvetica, sans-serif; /* define o tipo de fonte */ 
-    font-size:14px; /* define o tamanho da fonte */ 
-    color:#5e0f50; /* define a cor da fonte */     
+    
+    
 }
 
-#menu_admin li a:hover {
-    background-color: #FFE4B5; /* cor do fundo */
-    color: #DAA520; /* cor da fonte */
-    display:inline; 
-    text-decoration: none; /* retira o sublinhado dos links */ 
+#menu_admin li a:hover {    
+    text-decoration: none;
+   
 }
-
-
-.texto{
-
-}
+/* ****************************** MENU **************************** */
 
 #entrada{
     margin:0 auto;

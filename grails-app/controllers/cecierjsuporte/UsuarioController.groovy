@@ -10,7 +10,7 @@ class UsuarioController {
             redirect(controller: "home", action: "index")
         }
         else{
-            flash.message = "E-mail e/ou senha inválidos"
+            flash.message = "Dados informados incorretos"
             redirect(url: "/")           
         }
     }

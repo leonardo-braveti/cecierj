@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,39 +9,40 @@
     <!-- BootStrap CSS -->
     <link href="<g:resource dir="css" file="bootstrap.min.css" />" rel="stylesheet">
     <!-- Meu CSS -->
+    
     <link href="<g:resource dir="css" file="index.css" />" rel="stylesheet">
     
     <link href="<g:resource dir="css" file="bootstrapValidator.min.css" />" rel="stylesheet">
 
   </head>
   <body>
-    <div id="completo">
-      <div id="topo">
+      <div id="container">
+        <div id="topo">
           <img id="banner" src="images/banner_cecierj.png"/>
-      </div>
+        </div>
 
-      <div id="mensagem">
-        <p id="titulo"> Departamento de Suporte Técnico em Informática </p>
-        <p id="texto"> 
-          Para agilizar as solicitações e melhor atendê-lo, o Departamento de Suporte está disponibilizando o Cecierj Ticket. 
-          Para cada pedido, é gerdo um  número único para que você possa monitorar o status da solicitação.
-        </p>
-      </div>
+        <div id="letreiro"">
+            <p id="titulo"> Departamento de Suporte Técnico em Informática </p>
+            
+        </div>
       
       
-      <div id="entrada">
-        <p>
+      <div id="entrada" class="col-lg-12">
+        
+        <p class="texto">
             Você já possui cadastro no sistema?
         </p>
         <button class="btn btn-primary navbar-btn botao" id="decideSim">Sim</button>
-        <button class="btn btn-warning navbar-btn botao" id="decideNao">Não</button>
+        <button class="btn btn-danger navbar-btn botao" id="decideNao">Não</button>
         <br>
         
-        <p id="login_invalido">
-            <g:message code="${flash.message}" />
-        </p>
+        <div id="login_invalido">
+            <p>            
+                <g:message code="${flash.message}" />
+            </p>
+        </div>
         <div id="selecao">
-            <p>
+            <p class="texto">
               Onde você está?
             </p>
             <button type="button" class="btn btn-default navbar-btn botaos" tipo="centro">Centro</button>
@@ -226,7 +227,7 @@
             <input type="hidden" id="tipo" name="tipo">
             
             <div class="form-group">
-                <button type="submit" class="btn btn-success navbar-btn ">Entrar</button> 
+                <button type="submit" class="btn btn-success navbar-btn ">Cadastrar</button> 
             </div>        
                     
             <!-- ***** fim dos dados para configuração de usuario CEDERJ, CEJA e TUTORIA ***** -->
@@ -254,19 +255,13 @@
                 <button type="submit" class="btn btn-success navbar-btn ">Entrar</button> 
             </div>
         </g:form>
-              
-              
             <!-- ******** fim do formulario de cadastro  ******* -->
-              
-            
-            
-      </div>
-
-      <div id="rodape">
-        <p>Desenvolvido pelo Departamento de Suporte Técnico em Informática </p>        
       </div>      
-    </div>
     
+    <div id="rodape">        
+        <p>Desenvolvido pelo Departamento de Suporte Técnico em Informática </p>        
+    </div>      
+</div>
     
     <!-- jQuery  -->
     <script src="<g:resource dir="js" file="jquery-2.1.1.min.js"/>"></script>

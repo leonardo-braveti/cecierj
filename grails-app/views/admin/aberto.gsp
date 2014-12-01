@@ -13,7 +13,7 @@
     
     <link href="<g:resource dir="css" file="bootstrapValidator.min.css" />" rel="stylesheet">
     
-    <link href="<g:resource dir="css" file="jquery.dataTables.min2.css" />" rel="stylesheet">
+    <link href="<g:resource dir="css" file="jquery.dataTables.min.css" />" rel="stylesheet">
 
   </head>
   <body>
@@ -24,10 +24,12 @@
       </div>
 
       <div id="mensagem">
-        <p id="titulo_admin"> Departamento de Suporte Técnico em Informática </p>
-          <g:render template="menu" />     
+        <p id="titulo_admin"> Departamento de Suporte Técnico em Informática </p>          
       </div>
       
+      <div id="barra_menu">
+        <g:render template="menu" />    
+      </div>
       
       <div id="abertos_entrada">
             <p>

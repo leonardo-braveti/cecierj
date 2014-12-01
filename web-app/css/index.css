@@ -1,28 +1,75 @@
 @import url("estilo.css");
 
-#titulo{
+body{
+    background: #ddd;
+}
+* {
+	margin:0;
+	padding:0;
+}
+
+#container {
+        background: none repeat scroll 0 0 #FFFFFF;
+        box-shadow: 0 5px 5px 5px #CCCCCC;
+	width: 940px;
+	margin: 30px auto;
+	padding: 0px;
+}
+
+#topo{    
+    margin:0 auto;
+    max-width: 940px;
+    text-align: center;
+    background: white;
+}
+
+#letreiro{    
+    margin:0 auto;
+    background: #4682B4;
+    max-width: 940px;
+    position: relative;
+    top:9px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#letreiro #titulo{
     font-size: 20px;
-    font-family: "Verdana";
+    font-family: "Calibri";
+    color: white;
+    text-align: center;
 }
 
-.texto{
-
+.texto{    
+    font-size: 14px;
+    font-family: "Calibri";
+    color: #778899;
 }
 
-#login_invalido{
-    background-color: black;
-    color: white;    
+label{
+    color: #4682B4;
+    font-family: "Calibri"; 
 }
 
 #entrada{
     margin:0 auto;
-    position: relative;	
-    padding-top: 20px;	
-    width:60%;
+    max-width: 940px;
+    text-align: center;
+    background: white;
+    position: relative;
+    padding-top: 10px; 
+    
 }
 #entrada button{
     width:100px;
 }
-#rodape{
-    padding-top: 50px;
+#rodape{    
+    background: #4682B4;
+    argin:0 auto;
+    max-width: 940px;
+    color: white;
+    text-align: center;
+    font-family: "Calibri";
+    padding-top: 2px;
+    
 }
