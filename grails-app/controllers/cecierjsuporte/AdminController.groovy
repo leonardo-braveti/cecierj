@@ -2,7 +2,9 @@ package cecierjsuporte
 
 class AdminController {
 
-    def index() { }
+    def index() { 
+        render(view: "login")        
+    }
     
     def home(){ }
     

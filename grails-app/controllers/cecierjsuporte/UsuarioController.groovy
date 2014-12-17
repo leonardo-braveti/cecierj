@@ -29,7 +29,7 @@ class UsuarioController {
             }
         }
         else{
-            flash.message = "E-mail e/ou senha inválidos"
+            flash.message = "CREDENCIAIS INVÁLIDAS"
             redirect(url: "/admin")           
         }
     }
