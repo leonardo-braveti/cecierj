@@ -1,11 +1,11 @@
 package cecierjsuporte
 
 class TicketController {
+ 
     
     def novo() {
-       render(view : "ticket")
+       render(view : "../ticket")
     }
-    
     def salvar(){        
         params.abertura = new Date();
         params.status = "aberto"
@@ -14,7 +14,7 @@ class TicketController {
         ticket.dono = session.user        
         
         ticket.save(failOnError: true);        
-        redirect(uri: "/home/aberto")
+        render(view: "../aberto")
     }    
     
     /******  area administrativa **************/

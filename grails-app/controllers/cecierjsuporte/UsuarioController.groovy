@@ -1,37 +1,23 @@
 package cecierjsuporte
 
 class UsuarioController {
-
-    def validar_usuario() {
+    
+    def pagina(){
+        redirect(url: "/admin/usuarios")
+    }
+    
+    def validar() {
         def usuario = Usuario.findByEmailAndSenha(params.email,params.senha);
         
         if(usuario){                    
-            session.user = usuario
-            redirect(controller: "home", action: "index")
-        }
-        else{
-            flash.message = "Dados informados incorretos"
-            redirect(url: "/")           
-        }
-    }
-    
-    def validar_especialista() {
-        def usuario = Usuario.findByEmailAndSenha(params.email,params.senha);
-        
-         if(usuario){                    
-            if(usuario.perfil != "usuario"){
-                session.espec = usuario
-                redirect(url: "/admin/home")                        
-            }
-            else{
-                 flash.message = "Você não possui perfil para acessar a area administrativa"
-            redirect(url: "/admin")  
-            }
+            session.usuario = usuario
+            render(view:"../consolidado")                                    
         }
         else{
             flash.message = "CREDENCIAIS INVÁLIDAS"
-            redirect(url: "/admin")           
+            redirect(url:"/")
         }
+        System.out.println(session.usuario.perfil)
     }
     
     def cadastrar(){
@@ -76,10 +62,18 @@ class UsuarioController {
         redirect(url: "/home/")        
     }
     
+    def excluir(){        
+        def usuario = Usuario.get(params.ex_id);
+        usuario.delete(flush: true);        
+        flash.message = "Usuário excluído com sucesso"
+        redirect(url: "/admin/usuarios")  
+    }
+    
     def mudar_perfil(){
         def u = Usuario.get(params.form_id);   
         u.perfil = params.form_perf_novo
         u.save(flush:true)
+        flash.message = "Perfil modificado com sucesso"
         redirect(url: "/admin/usuarios")   
     }
 }
