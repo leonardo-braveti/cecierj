@@ -2,9 +2,7 @@ package cecierjsuporte
 
 class UsuarioController {
     
-    def pagina(){
-        redirect(url: "/admin/usuarios")
-    }
+    
     
     def validar() {
         def usuario = Usuario.findByEmailAndSenha(params.email,params.senha);
@@ -26,7 +24,7 @@ class UsuarioController {
         
         if(params.senha == params.rsenha){            
             usuario.save(failOnError: true)
-            flash.message = "Cadastro efetuado com sucesso"
+            flash.message = "CADASTRO EFETUADO COM SUCESSO"
             redirect(url: "/")  
         }
         else{
@@ -58,14 +56,14 @@ class UsuarioController {
         
         u.save(flush: true)     
         session.user = u
-        flash.message = "Dados atualizados com sucesso"
+        flash.message = "DADOS ATUALIZADOS COM SUCESSO"
         redirect(url: "/home/")        
     }
     
     def excluir(){        
         def usuario = Usuario.get(params.ex_id);
         usuario.delete(flush: true);        
-        flash.message = "Usuário excluído com sucesso"
+        flash.message = "USUÁRIO EXCLUÍDO COM SUCESSO"
         redirect(url: "/admin/usuarios")  
     }
     
@@ -73,7 +71,7 @@ class UsuarioController {
         def u = Usuario.get(params.form_id);   
         u.perfil = params.form_perf_novo
         u.save(flush:true)
-        flash.message = "Perfil modificado com sucesso"
+        flash.message = "PERFIL MODIFICADO COM SUCESSO"
         redirect(url: "/admin/usuarios")   
     }
 }

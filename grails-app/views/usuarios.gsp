@@ -2,7 +2,7 @@
 <html lang="pt">
     <head>
         <!-- importando cabecalho -->
-        <g:render template="head" />    
+        <g:render template="../head" />    
         <!-- importando cabecalho -->
         <link rel="stylesheet" href="<g:resource dir='css' file='usuarios.css'/>"/>
         <g:javascript library="jquery" />
@@ -10,13 +10,13 @@
     
     <body class=" theme-blue">
          <!-- importando cabecalho -->
-        <g:render template="topo" />    
+        <g:render template="../topo" />    
         <!-- importando cabecalho -->
     
 
         <div class="sidebar-nav">
             <!-- importando cabecalho -->
-            <g:render template="menu" />    
+            <g:render template="../menu" />    
             <!-- importando cabecalho -->    
         </div>
 
@@ -52,7 +52,7 @@
                     </thead>
                     <tbody>
                         <g:each  status="i" in="${usuarios}" var="item">
-                            <g:if test="${item.id != session.espec.id}">
+                            <g:if test="${item.id != session.usuario.id}">
                                 <tr id="l${i}">
                                     <td>${item.id}</td>
                                     <td>${item.nome}</td>
@@ -84,28 +84,28 @@
                     <g:form class="form-horizontal" url="[action:'mudar_perfil',controller:'usuario']" >                          
                         <div class="form-group">
                             <label class="col-lg-3 control-label">#</label>
-                            <div class="input-group col-lg-6">                        
+                            <div class="col-lg-6">                        
                                 <g:textField name="form_id" class="form_id" class="form-control" readonly="readonly" />
                             </div>
                         </div>
                   
                         <div class="form-group">
                             <label class="col-lg-3 control-label">Nome</label>
-                            <div class="input-group col-lg-6">                        
+                            <div class="col-lg-6">                        
                                 <g:textField name="form_nome" class="form_nome"  class="form-control" readonly="readonly" />
                             </div>
                         </div>
                 
                         <div class="form-group">
                             <label class="col-lg-3 control-label">Perfil Atual</label>
-                            <div class="input-group col-lg-6">                        
+                            <div class="col-lg-6">                        
                                 <g:textField name="form_perf_atual" id="form_perf_atual"  class="form-control" readonly="readonly" />
                             </div>
                         </div>
                     
                         <div class="form-group">
                             <label class="col-lg-3 control-label">Novo Atual</label>
-                            <div class="input-group col-lg-6">                        
+                            <div class="col-lg-6">                        
                                 <select name="form_perf_novo">                            
                                     <option class="perfis" value="usuario"> Usuário </option>
                                     <option class="perfis" value="analista"> Analista </option>
@@ -124,14 +124,14 @@
                     <g:form class="form-horizontal" url="[action:'excluir',controller:'usuario']" >                          
                         <div class="form-group">
                             <label class="col-lg-3 control-label">#</label>
-                            <div class="input-group col-lg-6">                        
+                            <div class="col-lg-6">                        
                                 <g:textField name="ex_id" id="ex_id" class="form-control" readonly="readonly" />
                             </div>
                         </div>
                   
                         <div class="form-group">
                             <label class="col-lg-3 control-label">Nome</label>
-                            <div class="input-group col-lg-6">                        
+                            <div class="col-lg-6">                        
                                 <g:textField name="ex_nome" id="ex_nome"  class="form-control" readonly="readonly" />
                             </div>
                         </div>                
@@ -146,7 +146,7 @@
 
                 <footer>
                     <!-- importando cabecalho -->
-                    <g:render template="rodape" />    
+                    <g:render template="../rodape" />    
                     <!-- importando cabecalho -->    
                 </footer>
             </div>

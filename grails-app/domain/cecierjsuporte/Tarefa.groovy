@@ -1,7 +1,7 @@
 package cecierjsuporte
 
 class Tarefa {
-
+    String titulo
     String descricao
     Date data
     Ticket ticket

@@ -4,7 +4,7 @@
         <!-- importando cabecalho -->
         <g:render template="../head" />    
         <!-- importando cabecalho -->
-        <link rel="stylesheet" href="<g:resource dir='css' file='usuarios.css'/>"/>
+        <link rel="stylesheet" href="<g:resource dir='css' file='abertos.css'/>"/>
         <g:javascript library="jquery" />
     </head>
     
@@ -36,7 +36,7 @@
                     <div class="btn-group">
                     </div>
                 </div>-->
-                <p id="edicao_usuario">                    
+                <p id="mensagem_atrelado">                    
                     <g:message code="${flash.message}" />
                 </p>
                 <table class="table">
@@ -67,14 +67,14 @@
                             <td>${item.abertura}</td>
                             <td>${item.ip}</td>
                             <td>                                                        
-                                <a href="#perfilForm"><i class="fa fa-pencil edicao"  linha="l${i}"></i></a>                                                                    
+                                <a href="#atrelarForm"><i class="fa fa-pencil editar"  linha="l${i}"></i></a>                                                                    
                             </td>                            
                         </g:each>
                         
                     </tbody>
                 </table>
 
-                <ul class="pagination">
+                <!--<ul class="pagination">
                     <li><a href="#">&laquo;</a></li>
                     <li><a href="#">1</a></li>
                     <li><a href="#">2</a></li>
@@ -82,70 +82,114 @@
                     <li><a href="#">4</a></li>
                     <li><a href="#">5</a></li>
                     <li><a href="#">&raquo;</a></li>
-                </ul>
+                </ul>-->
 
-                <div id="perfilForm">
-                    <g:form class="form-horizontal" url="[action:'mudar_perfil',controller:'usuario']" >                          
-                        <div class="form-group">
-                            <label class="col-lg-3 control-label">#</label>
-                            <div class="input-group col-lg-6">                        
-                                <g:textField name="form_id" class="form_id" class="form-control" readonly="readonly" />
+                <div id="atrelarForm" class="centralizar">
+                    <br>
+                    <p> Utilize este formulário para vincular um responsável a este ticket. </p>
+                    <br>
+                    <g:form class="form-horizontal" url="[action:'atribuirTecnico',controller:'ticket']" >                          
+                        <div class="form-group col-lg-10 ">
+                            <label class="col-lg-4 control-label">#</label>
+                            <div class="col-lg-1">                        
+                                <g:textField name="id" id="id"  class="form-control" readonly="readonly" />
+                            </div>
+                            <div class="conjunto">
+                                <label class="col-lg-2 control-label">Data</label>
+                                <div class="col-lg-4">                        
+                                    <g:textField name="data" id="data"  class="form-control" readonly="readonly" />
+                                </div>
                             </div>
                         </div>
                   
                         <div class="form-group">
                             <label class="col-lg-3 control-label">Nome</label>
-                            <div class="input-group col-lg-6">                        
-                                <g:textField name="form_nome" class="form_nome"  class="form-control" readonly="readonly" />
+                            <div class="col-lg-6">                        
+                                <g:textField name="nome" class="nome"  class="form-control" readonly="readonly" />
                             </div>
                         </div>
                 
                         <div class="form-group">
-                            <label class="col-lg-3 control-label">Perfil Atual</label>
-                            <div class="input-group col-lg-6">                        
-                                <g:textField name="form_perf_atual" id="form_perf_atual"  class="form-control" readonly="readonly" />
+                            <label class="col-lg-3 control-label">Departamento</label>
+                            <div class="col-lg-6">                        
+                                <g:textField name="departamento" id="departamento"  class="form-control" readonly="readonly" />
                             </div>
                         </div>
-                    
+                        
                         <div class="form-group">
-                            <label class="col-lg-3 control-label">Novo Atual</label>
-                            <div class="input-group col-lg-6">                        
-                                <select name="form_perf_novo">                            
-                                    <option class="perfis" value="usuario"> Usuário </option>
-                                    <option class="perfis" value="analista"> Analista </option>
-                                    <option class="perfis" value="tecnico"> Técnico </option>
+                            <label class="col-lg-3 control-label">Local</label>
+                            <div class="col-lg-6">                        
+                                <g:textField name="local" id="local"  class="form-control" readonly="readonly" />
+                            </div>                            
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Assunto</label>
+                            <div class="col-lg-6">                        
+                                <g:textField name="assunto" id="assunto"  class="form-control" readonly="readonly" />
+                            </div>
+                        </div>
+                        
+                         <div class="form-group">
+                            <label class="col-lg-3 control-label">Descrição</label>
+                            <div class="col-lg-6">                        
+                                <g:textArea name="descricao" id="descricao"  class="form-control" readonly="readonly" />
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Prioridade</label>
+                            <div class="col-lg-6">                        
+                                <g:textField name="prioridade" id="prioridade"  class="form-control" readonly="readonly" />
+                            </div>                            
+                        </div>
+                                        
+                        <p> Quem será o responsável pelo ticket? </p>
+                        
+                        <div class="form-group">                            
+                            <label class="col-lg-3 control-label"></label>
+                            <div class="col-lg-6">                                    
+                                <select id="sel_tipo">                                    
+                                        <option></option>       
+                                        <option>Técnico</option>                                    
+                                        <option>Analista</option>
                                 </select>
                             </div>
                         </div>
-            
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-success navbar-btn ">Atualizar Perfil</button> 
-                        </div>            
-                    </g:form>
-                </div>
-
-                <div id="excluirForm">
-                    <g:form class="form-horizontal" url="[action:'excluir',controller:'usuario']" >                          
-                        <div class="form-group">
-                            <label class="col-lg-3 control-label">#</label>
-                            <div class="input-group col-lg-6">                        
-                                <g:textField name="ex_id" id="ex_id" class="form-control" readonly="readonly" />
+                        
+                        <div id="tecnico" class="form-group">
+                            <label class="col-lg-3 control-label">Técnicos</label>
+                            <div class="input-group col-lg-6">                                    
+                                <select id="nome_tecnico" class="grupo_tecnico">
+                                    <option></option>       
+                                    <g:each var="t" in="${tecnicos}">
+                                        <option value="${t.nome}">${t.nome}</option>
+                                    </g:each>
+                                </select>
                             </div>
                         </div>
-                  
-                        <div class="form-group">
-                            <label class="col-lg-3 control-label">Nome</label>
+                        
+                        <div id="analista" class="form-group">
+                            <label class="col-lg-3 control-label">Analistas</label>
                             <div class="input-group col-lg-6">                        
-                                <g:textField name="ex_nome" id="ex_nome"  class="form-control" readonly="readonly" />
+                                <select id="nome_analista" class="grupo_analista">
+                                    <option></option>       
+                                    <g:each var="a" in="${analistas}">
+                                        <option value="${a.nome}">${a.nome}</option>
+                                    </g:each>
+                                </select>
                             </div>
-                        </div>                
-
-                        <p>Esta operação não pode ser desfeita!</p>
-                        <div class="form-group">                            
-                            <button type="submit" class="btn btn-danger navbar-btn ">Excluir Usuário</button> 
-                        </div>            
+                        </div>
+                        
+                        <div class="form-group centralizar">
+                            <input type="hidden" id="responsavel" name="responsavel">
+                            <button type="submit" class="btn btn-success navbar-btn ">Salvar</button>                        
+                        </div>
+                                 
                     </g:form>
                 </div>
+
+                
                 <!-- aqui estava o codigo do alert do template -->
 
                 <footer>

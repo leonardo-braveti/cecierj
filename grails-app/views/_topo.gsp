@@ -12,18 +12,19 @@
                 <ul id="main-menu" class="nav navbar-nav navbar-right">
                     <li class="dropdown hidden-xs">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <span class="glyphicon glyphicon-user padding-right-small" style="position:relative;top: 3px;"></span> ${session.espec.nome}
+                            <span class="glyphicon glyphicon-user padding-right-small" style="position:relative;top: 3px;"></span>
+                            ${session.usuario.nome}
                             <i class="fa fa-caret-down"></i>
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <g:link controller="usuario" action="dados">
+                                <g:link controller="navegar" action="dados">
                                     Meus Dados    
                                 </g:link>
                             </li>                            
                             <li class="divider"></li>                            
                             <li>
-                                <g:link controller="usuario" action="sair" tabindex="-1">
+                                <g:link controller="navegar" action="sair" tabindex="-1">
                                     Sair    
                                 </g:link>
                             </li>                                                        

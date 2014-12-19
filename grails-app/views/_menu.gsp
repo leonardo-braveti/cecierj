@@ -13,6 +13,11 @@
                             </g:link>
                         </li>
                         <li>
+                            <g:link controller="navegar" action="novo">
+                                <span class="fa fa-caret-right"></span> Criar ticket
+                            </g:link>
+                        </li>
+                        <li>
                             <g:link controller="navegar" action="abertos">
                                 <span class="fa fa-caret-right"></span> Tickets Abertos
                             </g:link>                            
@@ -40,7 +45,7 @@
                 <li>
                     <ul class="usuarios-menu nav nav-list collapse">                
                         <li >
-                            <g:link controller="usuario" action="pagina">
+                            <g:link controller="navegar" action="usuarios">
                                 <span class="fa fa-caret-right"></span> Gerenciar Usuários
                             </g:link>
                         </li>

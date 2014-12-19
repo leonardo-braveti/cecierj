@@ -7,6 +7,10 @@ class NavegarController {
         render(view: "../consolidado")
     }
     
+    def novo(){
+        render(view:"../novo_ticket", model: [ip: request.getRemoteAddr()])
+    }
+    
     def abertos(){
         def usuario = session.usuario
         def abertos = null
@@ -14,17 +18,21 @@ class NavegarController {
             abertos = Ticket.findAllByStatusAndDono("aberto", usuario)        
         else if(usuario.perfil.equals("analista"))
             abertos = Ticket.findAllByStatus("aberto")        
-        render(view: "../abertos", model: [tickets: abertos])
+            
+        def tecnicos = Usuario.findAllByPerfil("tecnico")        
+        def analistas = Usuario.findAllByPerfil("analista")        
+        
+        render(view: "../abertos", model: [tickets: abertos, tecnicos: tecnicos, analistas: analistas])
     }
     
     def andamento(){
-          def usuario = session.usuario
-        def abertos = null
+        def usuario = session.usuario
+        def andamento = null
         if(usuario.perfil.equals("tecnico"))
-            abertos = Ticket.findAllByStatusAndDono("andamento", usuario)        
+            andamento = Ticket.findAllByStatusAndDono("andamento", usuario)        
         else if(usuario.perfil.equals("analista"))
-            abertos = Ticket.findAllByStatus("andamento")        
-        render(view: "../andamento", model: [tickets: abertos])
+            andamento = Ticket.findAllByStatus("andamento")        
+        render(view: "../andamento", model: [tickets: andamento])
     }
     
     def historico(){
@@ -41,9 +49,10 @@ class NavegarController {
     
     /******* USUARIOS *********/
     
+    
     def usuarios(){
         def usuarios = Usuario.findAll()
-        render(view: "usuarios", model: [usuarios: usuarios])
+        render(view: "../usuarios", model: [usuarios: usuarios])
     }
     
     /******* USUARIOS ********/

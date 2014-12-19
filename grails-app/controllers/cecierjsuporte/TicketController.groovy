@@ -3,51 +3,62 @@ package cecierjsuporte
 class TicketController {
  
     
-    def novo() {
-       render(view : "../ticket")
-    }
     def salvar(){        
         params.abertura = new Date();
         params.status = "aberto"
         
         def ticket = new Ticket(params)       
-        ticket.dono = session.user        
+        ticket.dono = session.usuario        
         
         ticket.save(failOnError: true);        
-        render(view: "../aberto")
+        flash.message = "TICKET CRIADO COM SUCESSO. ACOMPANHE O MESMO ATRAVÉS DO MENU TICKET"
+        redirect(url:"/navegar/novo")        
     }    
+    
+    def atualizar(){
+        def ticket = Ticket.get(params.id)
+        def computador = Computador.findByHostname(params.hostname)
+        ticket.computador = computador;
+        ticket.save(failOnError: true);        
+        flash.message = "COMPUTADOR "+computador.hostname+" VINCULADO AO TICKET #"+ticket.id+" COM SUCESSO"
+        redirect(url:"/navegar/andamento")        
+    }
+    
+    def encerrar(){
+        def ticket = Ticket.get(params.id)
+        ticket.status = "fechado"
+        ticket.encerramento = new Date()
+        ticket.save(flush:true)          
+        flash.message = "TICKET #"+ticket.id+" CONCLUÍDO COM SUCESSO"
+        redirect(url:"/navegar/andamento")
+    }
     
     /******  area administrativa **************/
     def atribuirTecnico(){
-        def tecnico = Usuario.get(params.especialista);
-        def ticket = Ticket.get(params.numero);
+        System.out.println(params)        
+        Usuario responsavel = Usuario.findByNome(params.responsavel);
+        def ticket = Ticket.get(params.id);
         
         ticket.status = "andamento"
-        ticket.responsavel = tecnico
+        ticket.responsavel = responsavel
         ticket.save(flush:true)   
-        redirect(uri: "/admin/abertos")
+        flash.message = "TICKET #"+ticket.id+" FOI VINCULADO À "+responsavel.nome.toUpperCase()+" COM SUCESSO."
+        redirect(url:"/navegar/abertos")
     }
     
-    def registrarTrabalho(){                        
-        
-        if(!params.descricao.equals("")){        
-            def ticket = Ticket.get(params.id)
-            def tarefa = new Tarefa()         
-            tarefa.descricao = params.descricao        
-            tarefa.data = new Date()
-            tarefa.ticket = ticket
-            tarefa.save(flush:true)          
-        }
-        
-        if(params.concluir == "sim"){
-            def ticket = Ticket.get(params.id)
-            ticket.status = "fechado"
-            ticket.encerramento = new Date()
-            ticket.save(flush:true)          
-        }
+    def registrarTarefa(){                        
+        def ticket = Ticket.get(params.id_ticket)
+        def tarefa = new Tarefa()         
+        tarefa.titulo = params.titulo        
+        tarefa.descricao = params.descricao        
+        tarefa.data = new Date()
+        tarefa.ticket = ticket
+        tarefa.save(failOnError: true)          
             
-        flash.message = "Tarefas do ticket "+params.numero+" registradas com sucesso"
-        redirect(uri: "/admin/andamento")
+        flash.message = "TAREFA INCLUÍDA COM SUCESSO NO TICKET #"+ticket.id
+        redirect(url:"/navegar/andamento")
     }
+    
+    
 }
 
