@@ -1,36 +1,29 @@
 package cecierjsuporte
 
-class Ticket {
-    
-    String assunto;
-    String prioridade;
-    String descricao
+class Ticket {    
     Date abertura
-    Date encerramento
+    Date encerramento    
     Usuario dono
-    Usuario responsavel
-    String status    
-    String ip
+    Usuario responsavel      
+    Unidade unidade
+    Localidade localidade
+    Equipamento equipamento
+    String etiqueta
+    Problema problema
+    String descricao
+    Prioridade prioridade;
+    Status status
     
-    /*String tipo
-    String local
-    String setor
-    String andar
-    String sala*/
-    
+    static hasMany = [atendimentos:Atendimento]
     
     static mapping = {
         version false        
-    }    
+    }   
     
-    static belongsTo = Usuario
+    static belongsTo = Usuario    
     
-    static hasMany = [tarefas : Tarefa]    
-    
-    static constraints = { 
-        responsavel nullable: true
-        encerramento nullable : true
-        tarefas nullable: true
+    static constraints = {         
+        encerramento nullable : true        
     }
     
 }

@@ -28,7 +28,13 @@
                 </a>
             </div>
             <div class="navbar-collapse collapse" style="height: 1px;">
-
+                <ul id="main-menu" class="nav navbar-nav navbar-right">
+                    <li class="hidden-xs">
+                        <g:link controller="navegar" action="cadastrarUsuario">
+                            Cadastrar Novo Usuário         
+                        </g:link>                      
+                    </li>
+                </ul>
             </div>
         </div>
 

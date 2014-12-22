@@ -1,6 +1,10 @@
 package cecierjsuporte
 
 class NavegarController {
+    
+    def cadastrarUsuario(){
+        render(view:"../cadastro");
+    }
 
     /* ****** TICKETS ****/
     def consolidado() {
