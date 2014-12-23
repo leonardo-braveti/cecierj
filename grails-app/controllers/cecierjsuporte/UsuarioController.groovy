@@ -25,7 +25,7 @@ class UsuarioController {
         
         def setor = null;       
         def departamento = null;
-        if(params.unidade.equals("SEDE") & params.localidade.equals("Centro")){
+        if(params.unidade.equals("SEDE")){
             setor = Setor.findByNome(params.setor)
             departamento = Departamento.findByUnidadeAndLocalidadeAndSetor(unidade,localidade,setor)            
             params.departamento = departamento            
