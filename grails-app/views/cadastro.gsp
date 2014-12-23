@@ -31,37 +31,63 @@
             <div class="panel panel-default">
                 <p class="panel-heading no-collapse">Novo Usuário</p>
                 <div class="panel-body">
-                    <form>
+                    <g:form name="myForm" url="[action:'cadastrar',controller:'usuario']">                    
                         <div class="form-group">
                             <label>Nome Completo</label>
                             <input type="text" id="nome" name="nome" class="form-control span12">
                         </div>
                         <div class="form-group">
                             <label>E-mail</label>
-                            <input type="text" id="email" nome="email" class="form-control span12">
+                            <input type="text" id="email" name="email" class="form-control span12">
                         </div>
                     
                         <div class="form-group">
                             <label>Telefone</label>
-                            <input type="text" id="telefone" nome="telefone" class="form-control span12">
+                            <input type="text" id="telefone" name="telefone" class="form-control span12">
                         </div>
                         
                         <div class="form-group">
-                            <label>Departamento / Setor </label>
-                            <input type="text" class="form-control span12">
+                            <label>Celular</label>
+                            <input type="text" id="celular" name="celular" class="form-control span12">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Unidade</label>
+                            <select name="unidade">
+                                <g:each in="${unidade}">
+                                    <option name="${it.nome}">${it.nome}</option>
+                                </g:each>
+                            </select>
+                            <label>Localidade</label>
+                            <select name="localidade">
+                                <g:each in="${localidade}">
+                                    <option name="${it.nome}">${it.nome}</option>
+                                </g:each>
+                            </select>
+                            <label>Setor</label>
+                            <select name="setor">
+                                <g:each in="${setor}">
+                                    <option name="${it.nome}">${it.nome}</option>
+                                </g:each>
+                            </select>                            
                         </div>
                 
                         <div class="form-group">
-                            <label>Password</label>
-                            <input type="password" class="form-control span12">
+                            <label>Senha</label>
+                            <input type="password" name="senha" class="form-control span12">
                         </div>  
+                        
+                        <div class="form-group">
+                            <label>Confirmar senha</label>
+                            <input type="password" name="rsenha" class="form-control span12">
+                        </div> 
                     
                         <div class="form-group">
-                            <a href="index.html" class="btn btn-primary pull-right">Cadastrar Usuario</a>                            
+                            <input type="submit" class="btn btn-primary pull-right" value="Cadastrar Usuario">
                         </div>
                     
                         <div class="clearfix"></div>
-                    </form>
+                    </g:form>
                 </div>
             </div>            
         </div>

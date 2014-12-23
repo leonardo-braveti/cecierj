@@ -3,7 +3,14 @@ package cecierjsuporte
 class NavegarController {
     
     def cadastrarUsuario(){
-        render(view:"../cadastro");
+        render(
+                view:"../cadastro", model:
+                [
+                    unidade:Unidade.findAll("from Unidade as u order by u.nome"), 
+                    localidade:Localidade.findAll("from Localidade as l order by l.nome"),
+                    setor:Setor.findAll("from Setor as s order by s.nome")
+                ]
+            )
     }
 
     /* ****** TICKETS ****/
@@ -11,8 +18,16 @@ class NavegarController {
         render(view: "../consolidado")
     }
     
-    def novo(){
-        render(view:"../novo_ticket", model: [ip: request.getRemoteAddr()])
+    def novo(){        
+        render(
+                view:"../novo_ticket", model: 
+                [
+                    ip: request.getRemoteAddr(), 
+                    problema:  Problema.findAll("from Problema as p order by p.nome"),
+                    unidade:Unidade.findAll("from Unidade as u order by u.nome"), 
+                    localidade:Localidade.findAll("from Localidade as l order by l.nome")
+                ]
+            )
     }
     
     def abertos(){

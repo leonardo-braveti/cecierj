@@ -7,3 +7,13 @@
 .navbar-default .navbar-brand, .navbar-default .navbar-brand:hover { 
     color: #fff;
 }
+
+.letreiro_vermelho{    
+    margin:0 auto;
+    position: relative;    
+    font-family: "Open Sans";
+    font-size: 12px;    
+    text-align: center;
+    color: red;
+    font-weight: bold;    
+}

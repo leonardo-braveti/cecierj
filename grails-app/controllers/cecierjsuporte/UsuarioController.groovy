@@ -14,15 +14,30 @@ class UsuarioController {
         else{
             flash.message = "CREDENCIAIS INVÁLIDAS"
             redirect(url:"/")
-        }
-        System.out.println(session.usuario.perfil)
+        }        
     }
     
     def cadastrar(){
-        params.perfil = "usuario"
-        def usuario = new Usuario(params)        
+        params.perfil = "usuario"        
+        def unidade = Unidade.findByNome(params.unidade)
+        def localidade = Localidade.findByNome(params.localidade)
+        
+        
+        def setor = null;       
+        def departamento = null;
+        if(params.unidade.equals("SEDE") & params.localidade.equals("Centro")){
+            setor = Setor.findByNome(params.setor)
+            departamento = Departamento.findByUnidadeAndLocalidadeAndSetor(unidade,localidade,setor)            
+            params.departamento = departamento            
+        }
+        else{
+            departamento = Departamento.findByUnidadeAndLocalidade(unidade,localidade)
+            params.departamento            
+        }
+        
         
         if(params.senha == params.rsenha){            
+            def usuario = new Usuario(params)        
             usuario.save(failOnError: true)
             flash.message = "CADASTRO EFETUADO COM SUCESSO"
             redirect(url: "/")  

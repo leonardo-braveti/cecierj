@@ -9,14 +9,12 @@ class Usuario {
     String celular
     String senha  
     String perfil
-    static hasMany = [tickets:Ticket, atendimentos:Atendimento]
-    static mappedBy = [tickets: "dono"]
-    // mapeamento para tickets & mapeamento para atendimentos
-    
-    
-    
+    static hasMany = [tickets:Ticket, trabalhaEm: Ticket, atendimentos:Atendimento, responsavel: Departamento]
+    static mappedBy = [tickets: "dono", trabalhaEm: "responsavel", responsavel: "responsavel"]
+   
     static constraints = {      
         email unique: true        
+        departamento nullable: true
     }
     
     static mapping = {

@@ -5,7 +5,7 @@
         <!-- importando cabecalho -->
         <g:render template="head" />    
         <!-- importando cabecalho -->
-
+        
         <!-- JS -->        
         <script src="<g:resource dir="lib/js" file="bootstrapValidator.min.js"/>"></script>        
         <!-- JS -->
@@ -40,7 +40,7 @@
 
 
         <div class="dialog">
-            <div class="panel panel-default">
+            <div class="panel panel-default">             
                 <p class="panel-heading no-collapse">Informe suas credenciais</p>
                 <div class="panel-body">
                     <g:form name="formValidar" url="[action:'validar',controller:'usuario']">
@@ -56,7 +56,7 @@
                         <div class="clearfix">
                         </div>
                     </g:form> 
-                    <p id="login_invalido">
+                    <p class="letreiro_vermelho">
                         <br>
                         <g:message code="${flash.message}" />
                     </p>

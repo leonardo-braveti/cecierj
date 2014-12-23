@@ -1,75 +1,10 @@
-@import url("estilo.css");
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 17/12/2014, 15:52:42
+    Author     : leonardo
+*/
 
-body{
-    background: #ddd;
-}
-* {
-	margin:0;
-	padding:0;
-}
-
-#container {
-        background: none repeat scroll 0 0 #FFFFFF;
-        box-shadow: 0 5px 5px 5px #CCCCCC;
-	width: 940px;
-	margin: 30px auto;
-	padding: 0px;
-}
-
-#topo{    
-    margin:0 auto;
-    max-width: 940px;
-    text-align: center;
-    background: white;
-}
-
-#letreiro{    
-    margin:0 auto;
-    background: #4682B4;
-    max-width: 940px;
-    position: relative;
-    top:9px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-#letreiro #titulo{
-    font-size: 20px;
-    font-family: "Calibri";
-    color: white;
-    text-align: center;
-}
-
-.texto{    
-    font-size: 14px;
-    font-family: "Calibri";
-    color: #778899;
-}
-
-label{
-    color: #4682B4;
-    font-family: "Calibri"; 
-}
-
-#entrada{
-    margin:0 auto;
-    max-width: 940px;
-    text-align: center;
-    background: white;
-    position: relative;
-    padding-top: 10px; 
-    
-}
-#entrada button{
-    width:100px;
-}
-#rodape{    
-    background: #4682B4;
-    argin:0 auto;
-    max-width: 940px;
-    color: white;
-    text-align: center;
-    font-family: "Calibri";
-    padding-top: 2px;
-    
-}

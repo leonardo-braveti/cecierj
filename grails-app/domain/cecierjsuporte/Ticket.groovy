@@ -2,19 +2,12 @@ package cecierjsuporte
 
 class Ticket {    
     Date abertura
-    Date encerramento    
-    Usuario dono
-    Usuario responsavel      
-    Unidade unidade
-    Localidade localidade
-    Equipamento equipamento
-    String etiqueta
-    Problema problema
-    String descricao
-    Prioridade prioridade;
-    Status status
-    
-    static hasMany = [atendimentos:Atendimento]
+    Date encerramento                      
+    String etiqueta    
+    String descricao    
+    Status status    
+    static hasOne = [dono:Usuario, responsavel:Usuario, departamento:Departamento, problema:Problema, prioridade:Prioridade]    
+    static hasMany = [atendimentos:Atendimento, equipamento:Equipamento]
     
     static mapping = {
         version false        

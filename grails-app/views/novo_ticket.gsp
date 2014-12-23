@@ -40,14 +40,18 @@
                 <br>
                 <g:form name="registrationForm" class="form-horizontal" url="[action:'salvar',controller:'ticket']" >
                     <div class="form-group">
-                        <label class="col-lg-3 control-label">Assunto</label>
+                        <label class="col-lg-3 control-label">Problema</label>
                         <div class="col-lg-6">
-                            <input type="text" class="form-control" name="assunto" placeholder="Informe o assunto da solicitação">
+                            <select name=problema>
+                                <g:each in="${problema}">
+                                    <option name="${it.nome}">${it.nome}</option>
+                                </g:each>
+                            </select>                            
                         </div>
                     </div>
           
                     <div class="form-group">
-                        <label class="col-lg-3 control-label">Descrição do Problema</label>
+                        <label class="col-lg-3 control-label">Descrição do problema</label>
                         <div class="col-lg-6">                
                             <textarea rows="6" placeholder="Descreva o serviço a ser realizado" class="form-control" name="descricao"></textarea>
                         </div>
@@ -62,9 +66,28 @@
                                 <option value="alta">Alta</option>                    
                             </select>              
                         </div>
-                        <label class="col-lg-3 control-label">Endereço IP</label>
+                        <label class="col-lg-3 control-label">Seu endereço IP</label>
                         <div class="col-lg-2">
                             <input type="text" class="form-control" name="ip" value="${ip}" readonly placeholder="Informe o assunto da solicitação">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Unidade</label>
+                        <div class="col-lg-1">
+                             <select name=unidade>
+                                <g:each in="${unidade}">
+                                    <option name="${it.nome}">${it.nome}</option>
+                                </g:each>
+                            </select>                 
+                        </div>
+                        <label class="col-lg-3 control-label">Localidade</label>
+                        <div class="col-lg-2">
+                            <select name=localidade>
+                                <g:each in="${localidade}">
+                                    <option name="${it.nome}">${it.nome}</option>
+                                </g:each>
+                            </select>     
                         </div>
                     </div>
 

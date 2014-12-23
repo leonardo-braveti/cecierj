@@ -6,4 +6,9 @@ class Atendimento {
     Date data     
     Status status
     Ticket ticket    
+    static hasOne = [usuario: Usuario]
+    
+    static mapping = {
+        version false        
+    }  
 }
