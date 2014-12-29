@@ -5,8 +5,13 @@ class Ticket {
     Date encerramento                      
     String etiqueta    
     String descricao    
-    Status status    
-    static hasOne = [dono:Usuario, responsavel:Usuario, departamento:Departamento, problema:Problema, prioridade:Prioridade]    
+    Status status
+    String localidade
+    String unidade
+    String problema
+    String prioridade
+    
+    static hasOne = [dono:Usuario, responsavel:Usuario]    
     static hasMany = [atendimentos:Atendimento, equipamento:Equipamento]
     
     static mapping = {
@@ -16,7 +21,8 @@ class Ticket {
     static belongsTo = Usuario    
     
     static constraints = {         
-        encerramento nullable : true        
+        encerramento nullable: true     
+        etiqueta nullable: true
     }
     
 }

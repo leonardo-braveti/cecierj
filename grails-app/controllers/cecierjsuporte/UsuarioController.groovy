@@ -7,6 +7,7 @@ class UsuarioController {
     def validar() {
         def usuario = Usuario.findByEmailAndSenha(params.email,params.senha);
         
+        
         if(usuario){                    
             session.usuario = usuario
             render(view:"../consolidado")                                    
@@ -19,21 +20,6 @@ class UsuarioController {
     
     def cadastrar(){
         params.perfil = "usuario"        
-        def unidade = Unidade.findByNome(params.unidade)
-        def localidade = Localidade.findByNome(params.localidade)
-        
-        
-        def setor = null;       
-        def departamento = null;
-        if(params.unidade.equals("SEDE")){
-            setor = Setor.findByNome(params.setor)
-            departamento = Departamento.findByUnidadeAndLocalidadeAndSetor(unidade,localidade,setor)            
-            params.departamento = departamento            
-        }
-        else{
-            departamento = Departamento.findByUnidadeAndLocalidade(unidade,localidade)
-            params.departamento            
-        }
         
         
         if(params.senha == params.rsenha){            

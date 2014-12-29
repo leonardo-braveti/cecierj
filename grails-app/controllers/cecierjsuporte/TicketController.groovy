@@ -7,12 +7,6 @@ class TicketController {
         params.abertura = new Date();
         
         // prioridade
-        params.localidade = Localidade.findByNome(pamams.localidade)
-        params.unidade = Unidade.findByNome(pamams.unidade)
-        
-        params.problema = Problema.findByNome(pamams.problema)
-        params.prioridade = Prioridade.findByNome(pamams.prioridade)
-        params.status = Prioridade.findByNome("aberto")
                 
         def ticket = new Ticket(params)       
         ticket.dono = session.usuario        

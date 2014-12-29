@@ -62,8 +62,9 @@
                         <label class="col-lg-3 control-label">Prioridade</label>
                         <div class="col-lg-1">
                             <select name="prioridade"> 
-                                <option value="normal">Normal</option>
-                                <option value="alta">Alta</option>                    
+                                <g:each in="${prioridade}">
+                                    <option value="${it.nome}">${it.nome}</option>                                    
+                                </g:each>
                             </select>              
                         </div>
                         <label class="col-lg-3 control-label">Seu endereço IP</label>

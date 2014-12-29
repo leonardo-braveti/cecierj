@@ -52,19 +52,26 @@
                         </div>
                         
                         <div class="form-group">
-                            <label>Unidade</label>
+                            <label>Unidade</label>                            
                             <select name="unidade">
                                 <g:each in="${unidade}">
                                     <option name="${it.nome}">${it.nome}</option>
                                 </g:each>
                             </select>
-                            <label>Localidade</label>
+                        </div>                                
+                        
+                        <div class="form-group">
+                            <label>Localidade</label>                            
                             <select name="localidade">
                                 <g:each in="${localidade}">
                                     <option name="${it.nome}">${it.nome}</option>
                                 </g:each>
                             </select>
+                        </div>                                                                                            
+                        
+                        <div class="form-group">
                             <label>Setor</label>
+                            <br>
                             <select name="setor">
                                 <g:each in="${setor}">
                                     <option name="${it.nome}">${it.nome}</option>

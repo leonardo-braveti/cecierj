@@ -25,7 +25,8 @@ class NavegarController {
                     ip: request.getRemoteAddr(), 
                     problema:  Problema.findAll("from Problema as p order by p.nome"),
                     unidade:Unidade.findAll("from Unidade as u order by u.nome"), 
-                    localidade:Localidade.findAll("from Localidade as l order by l.nome")
+                    localidade:Localidade.findAll("from Localidade as l order by l.nome"),
+                    prioridade:Prioridade.findAll("from Prioridade as p order by p.nome")
                 ]
             )
     }
@@ -33,13 +34,13 @@ class NavegarController {
     def abertos(){
         def usuario = session.usuario
         def abertos = null
-        if(usuario.perfil.equals("tecnico"))
+        if(usuario.perfil == Perfil.findByNome("Técnico"))
             abertos = Ticket.findAllByStatusAndDono("aberto", usuario)        
-        else if(usuario.perfil.equals("analista"))
+        if(usuario.perfil == Perfil.findByNome("Analista"))
             abertos = Ticket.findAllByStatus("aberto")        
             
-        def tecnicos = Usuario.findAllByPerfil("tecnico")        
-        def analistas = Usuario.findAllByPerfil("analista")        
+        def tecnicos = Usuario.findAllByPerfil(Perfil.findByNome("Técnico"))        
+        def analistas = Usuario.findAllByPerfil(Perfil.findByNome("Analista"))        
         
         render(view: "../abertos", model: [tickets: abertos, tecnicos: tecnicos, analistas: analistas])
     }
@@ -47,20 +48,22 @@ class NavegarController {
     def andamento(){
         def usuario = session.usuario
         def andamento = null
-        if(usuario.perfil.equals("tecnico"))
+        if(usuario.perfil == Perfil.findByNome("Técnico"))
             andamento = Ticket.findAllByStatusAndDono("andamento", usuario)        
-        else if(usuario.perfil.equals("analista"))
+        if(usuario.perfil == Perfil.findByNome("Analista"))
             andamento = Ticket.findAllByStatus("andamento")        
+        
         render(view: "../andamento", model: [tickets: andamento])
     }
     
     def historico(){
           def usuario = session.usuario
         def abertos = null
-        if(usuario.perfil.equals("tecnico"))
+        if(usuario.perfil == Perfil.findByNome("Técnico"))
             abertos = Ticket.findAllByStatusAndDono("finalizado", usuario)        
-        else if(usuario.perfil.equals("analista"))
+        if(usuario.perfil == Perfil.findByNome("Analista"))
             abertos = Ticket.findAllByStatus("finalizado")        
+        
         render(view: "../historico", model: [tickets: abertos])
     }
     
