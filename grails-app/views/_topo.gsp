@@ -18,7 +18,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <g:link controller="navegar" action="dados">
+                                <g:link controller="navegar" action="meusDados">
                                     Meus Dados    
                                 </g:link>
                             </li>                            

@@ -27,6 +27,10 @@ and open the template in the editor.
     
 }
 
+table tbody td, table thead th{
+    text-align: center;
+}
+
 button{
     width: 90px;
 }

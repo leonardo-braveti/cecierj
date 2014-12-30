@@ -7,7 +7,11 @@ class TicketController {
         params.abertura = new Date();
         params.status = "ABERTO"
         
-        // prioridade
+        if(params.unidade.equals("SEDE") || params.unidade.equals("GRÁFICA") )
+            params.localidade = "Rio de Janeiro"
+        
+        if(params.unidade.equals("MUSEU"))
+            params.localidade = "Duque de Caxias"
                 
         def ticket = new Ticket(params)       
         ticket.dono = session.usuario        
@@ -45,7 +49,7 @@ class TicketController {
         ticket.responsavel = responsavel
         ticket.save(flush:true)   
         flash.message = "TICKET #"+ticket.id+" FOI VINCULADO À "+responsavel.nome.toUpperCase()+" COM SUCESSO."
-        redirect(url:"/navegar/abertos")
+        redirect(url:"/navegar/listarTicketsEmAndamento")
     }
     
     def registrarAtendimento(){                        

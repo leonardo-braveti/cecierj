@@ -10,6 +10,8 @@ class Usuario {
     String unidade
     String localidade
     String setor
+    String universidade
+    String curso
     String perfil
     
     static hasMany = [tickets:Ticket, trabalhaEm: Ticket, atendimentos:Atendimento]
@@ -17,6 +19,9 @@ class Usuario {
     static constraints = {      
         email unique: true        
         setor nullable: true
+        localidade nullable: true
+        universidade nullable: true
+        curso nullable: true
     }
     
     static mapping = {

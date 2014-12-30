@@ -1,7 +1,9 @@
 
 import cecierjsuporte.Unidade
+import cecierjsuporte.Universidade
 import cecierjsuporte.Usuario
 
+import cecierjsuporte.Curso
 import cecierjsuporte.Localidade
 import cecierjsuporte.Perfil
 import cecierjsuporte.Prioridade
@@ -60,6 +62,25 @@ class BootStrap {
             new Setor(nome:"Departamento de Desenvolvimento de Software").save(failOnError:true)            	
         }
         
+        if(!Universidade.count()){
+            new Universidade(nome:"UERJ").save(failOnError:true)
+            new Universidade(nome:"UFF").save(failOnError:true)
+            new Universidade(nome:"UFRJ").save(failOnError:true)
+            new Universidade(nome:"UFRRJ").save(failOnError:true)
+            new Universidade(nome:"UNIRIO").save(failOnError:true)
+        }
+        
+        if(!Curso.count()){
+            new Curso(nome:"Administração").save(failOnError:true)
+            new Curso(nome:"Biofísica").save(failOnError:true)
+            new Curso(nome:"Biologia").save(failOnError:true)
+            new Curso(nome:"Computação").save(failOnError:true)
+            new Curso(nome:"Física").save(failOnError:true)
+            new Curso(nome:"Matemática").save(failOnError:true)
+            new Curso(nome:"Pedagogia").save(failOnError:true)
+            new Curso(nome:"Quimica").save(failOnError:true)
+        }
+        
         if(!Localidade.count()){
             new Localidade(nome:"Alemão").save(failOnError:true)
             new Localidade(nome:"Angra dos Reis").save(failOnError:true)
@@ -100,6 +121,7 @@ class BootStrap {
             new Localidade(nome:"Laje do Muriaé").save(failOnError:true)
             new Localidade(nome:"Macaé").save(failOnError:true)
             new Localidade(nome:"Macuco").save(failOnError:true)
+            new Localidade(nome:"Madureira").save(failOnError:true)
             new Localidade(nome:"Magé").save(failOnError:true)
             new Localidade(nome:"Mangaratiba").save(failOnError:true)
             new Localidade(nome:"Maricá").save(failOnError:true)

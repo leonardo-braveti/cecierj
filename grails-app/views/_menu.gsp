@@ -13,25 +13,25 @@
                             </g:link>
                         </li>
                         <li>
-                            <g:link controller="navegar" action="novo">
-                                <span class="fa fa-caret-right"></span> Criar ticket
+                            <g:link controller="navegar" action="criarTicket">
+                                <span class="fa fa-caret-right"></span> Criar
                             </g:link>
                         </li>
                         <li>
-                            <g:link controller="navegar" action="abertos">
-                                <span class="fa fa-caret-right"></span> Tickets abertos
+                            <g:link controller="navegar" action="listarTicketsAbertos">
+                                <span class="fa fa-caret-right"></span> Abertos
                             </g:link>                            
                         </li>
                         <li>
-                            <g:link controller="navegar" action="andamento">
-                                <span class="fa fa-caret-right"></span> Tickets em andamento
+                            <g:link controller="navegar" action="listarTicketsEmAndamento">
+                                <span class="fa fa-caret-right"></span> Em andamento
                             </g:link>                            
                         </li>
                         <li>
-                            <g:link controller="navegar" action="historico">
-                                <span class="fa fa-caret-right"></span> Histórico de tickets
+                            <g:link controller="navegar" action="pesquisarTickets">
+                                <span class="fa fa-caret-right"></span> Pesquisar
                             </g:link>                            
-                        </li>
+                        </li>                                    
                     </ul>
                 </li> 
 
@@ -45,13 +45,13 @@
                 <li>
                     <ul class="usuarios-menu nav nav-list collapse">                
                         <li >
-                            <g:link controller="navegar" action="usuarios">
-                                <span class="fa fa-caret-right"></span> Gerenciar usuários
+                            <g:link controller="navegar" action="listarUsuarios">
+                                <span class="fa fa-caret-right"></span> Gerenciar
                             </g:link>
                         </li>
                         <li>
-                            <g:link controller="usuario" action="pesquisar">
-                                <span class="fa fa-caret-right"></span> Pesquisar usuarios
+                            <g:link controller="usuario" action="pesquisarUsuarios">
+                                <span class="fa fa-caret-right"></span> Pesquisar
                             </g:link>                            
                         </li>
                     </ul>
@@ -104,8 +104,29 @@
                         </li>
                     </ul>
                 </li>
+            
+                <li>
+                    <a href="#" data-target=".dados-computador" class="nav-header collapsed" data-toggle="collapse">
+                        <i class="fa fa-desktop"></i>Computador
+                        <i class="fa fa-collapse"></i>
+                    </a>
+                </li>
+                <li>
+                    <ul class="dados-computador nav nav-list collapse">
+                        <li>
+                            <g:link controller="navegar" action="incluirComputador">
+                                <span class="fa fa-caret-right"></span> Incluir
+                            </g:link>                            
+                        </li>
+                        <li>
+                            <g:link controller="navegar" action="pesquisarComputador">
+                                <span class="fa fa-caret-right"></span> Pesquisar
+                            </g:link>                            
+                        </li>                                                
+                    </ul>
+                </li>  
 
-	           <li>
+	        <li>
                     <a href="#" data-target=".dados-menu" class="nav-header collapsed" data-toggle="collapse">
                         <i class="fa fa-book"></i>Meus dados 
                         <i class="fa fa-collapse"></i>

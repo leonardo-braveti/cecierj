@@ -19,9 +19,7 @@ class UsuarioController {
     }
     
     def cadastrar(){
-        params.perfil = "Usuário"        
-        
-        
+        params.perfil = "Usuário"
         if(params.senha == params.rsenha){            
             def usuario = new Usuario(params)        
             usuario.save(failOnError: true)

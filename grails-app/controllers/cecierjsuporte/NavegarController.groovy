@@ -4,11 +4,13 @@ class NavegarController {
     
     def cadastrarUsuario(){
         render(
-                view:"../cadastro", model:
+                view:"../cadastrarUsuario", model:
                 [
                     unidade:Unidade.findAll("from Unidade as u order by u.nome"), 
                     localidade:Localidade.findAll("from Localidade as l order by l.nome"),
-                    setor:Setor.findAll("from Setor as s order by s.nome")
+                    setor:Setor.findAll("from Setor as s order by s.nome"),
+                    universidade:Universidade.findAll("from Universidade as u order by u.nome"),
+                    curso:Curso.findAll("from Curso as c order by c.nome")
                 ]
             )
     }
@@ -18,20 +20,23 @@ class NavegarController {
         render(view: "../consolidado")        
     }
     
-    def novo(){        
+    def criarTicket(){        
         render(
-                view:"../novo_ticket", model: 
+                view:"../criarTicket", model: 
                 [
                     ip: request.getRemoteAddr(), 
                     problema:  Problema.findAll("from Problema as p order by p.nome"),
                     unidade:Unidade.findAll("from Unidade as u order by u.nome"), 
                     localidade:Localidade.findAll("from Localidade as l order by l.nome"),
-                    prioridade:Prioridade.findAll("from Prioridade as p order by p.nome")
+                    prioridade:Prioridade.findAll("from Prioridade as p order by p.nome"),
+                    setor:Setor.findAll("from Setor as s order by s.nome"),
+                    universidade:Universidade.findAll("from Universidade as u order by u.nome"),
+                    curso:Curso.findAll("from Curso as c order by c.nome")                
                 ]
             )
     }
     
-    def abertos(){
+    def listarTicketsAbertos(){
         def usuario = session.usuario
         def abertos = null
         
@@ -43,10 +48,10 @@ class NavegarController {
         def tecnicos = Usuario.findAllByPerfil("Técnico")        
         def analistas = Usuario.findAllByPerfil("Analista")
         
-        render(view: "../abertos", model: [tickets: abertos, tecnicos: tecnicos, analistas: analistas])
+        render(view: "../listarTicketsAbertos", model: [tickets: abertos, tecnicos: tecnicos, analistas: analistas])
     }
     
-    def andamento(){
+    def listarTicketsEmAndamento(){
         def usuario = session.usuario
         def andamento = null
         if(usuario.perfil.equals("Técnico") || usuario.perfil.equals("Usuário"))
@@ -54,10 +59,10 @@ class NavegarController {
         if(usuario.perfil.equals("Analista"))
             andamento = Ticket.findAllByStatus("ANDAMENTO")        
         
-        render(view: "../andamento", model: [tickets: andamento])
+        render(view: "../listarTicketsEmAndamento", model: [tickets: andamento])
     }
     
-    def historico(){
+    def listarHistoricoDeTickets(){
           def usuario = session.usuario
         def abertos = null
         if(usuario.perfil == Perfil.findByNome("Técnico"))
@@ -65,7 +70,7 @@ class NavegarController {
         if(usuario.perfil == Perfil.findByNome("Analista"))
             abertos = Ticket.findAllByStatus("finalizado")        
         
-        render(view: "../historico", model: [tickets: abertos])
+        render(view: "../listarHistoricoDeTickets", model: [tickets: abertos])
     }
     
     /******* TICKETS ***********/
@@ -73,11 +78,15 @@ class NavegarController {
     /******* USUARIOS *********/
     
     
-    def usuarios(){
+    def listarUsuarios(){
         def usuarios = Usuario.findAll()
-        render(view: "../usuarios", model: [usuarios: usuarios, perfil: Perfil.findAll()])
+        render(view: "../listarUsuarios", model: [usuarios: usuarios, perfil: Perfil.findAll()])
     }
     
+    def pesquisarUsuarios(){
+        
+        render(view: "../pesquisarUsuarios")
+    }
     
     /******* USUARIOS ********/
     

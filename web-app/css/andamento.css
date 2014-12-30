@@ -32,3 +32,26 @@ and open the template in the editor.
 button{
     width: 130px;
 }
+
+table tbody td, table thead th{
+    text-align: center;
+}
+
+table{
+    margin:0 auto;
+    position: relative;  
+    text-align: center;    
+}
+
+.estiloTituloCelulas{
+    color: firebrick;
+    font-size: 14px;
+}
+.estiloNomeCelula{
+    color: #006dba;
+    font-weight: bold;
+    font-size: 12px;
+}
+.estiloConteudoCelula{
+    font-size: 12px;
+}

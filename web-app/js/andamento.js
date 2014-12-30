@@ -6,47 +6,87 @@
 
 
 $("document").ready(function(){
-    $("table thead tr th:nth-child(6)").hide();
-    $("table tbody tr td:nth-child(6)").hide();
+    //setor
+    $("#listagem thead tr th:nth-child(5)").hide();
+    $("#listagem tbody tr td:nth-child(5)").hide();
     
+    //curso
+    $("#listagem thead tr th:nth-child(6)").hide();
+    $("#listagem tbody tr td:nth-child(6)").hide();
     
-    $("table thead tr th:nth-child(9)").hide();
-    $("table tbody tr td:nth-child(9)").hide();
+    //descricao
+    $("#listagem thead tr th:nth-child(8)").hide();
+    $("#listagem tbody tr td:nth-child(8)").hide();
+    
+    //ip
+    $("#listagem thead tr th:nth-child(11)").hide();
+    $("#listagem tbody tr td:nth-child(11)").hide();
+    
+    $(".mostraSetor").hide();
+    $(".mostraDisciplina").hide();
     
     $("#atrelarForm").hide();    
     
     $(".editar").click(function(){
+      $(".mostraSetor").hide();
+      $(".mostraCurso").hide();
+      
       var linha = $(this).attr("linha");       
        
       id = $("#"+linha+" td:nth-child(1)" ).text();
       $("#id").val(id);
+      $("#td_id").text(id);
       
       nome = $("#"+linha+" td:nth-child(2)" ).text();
       $("#nome").val(nome);
+      $("#td_nome").text(nome);
       
-      departamento = $("#"+linha+" td:nth-child(3)" ).text();
-      $("#departamento").val(departamento);
+      /********** BLOCO UNIDADE *********/
+      unidade = $("#"+linha+" td:nth-child(3)" ).text();
+      $("#unidade").val(unidade);
+      $("#td_unidade").text(unidade);
       
-      local = $("#"+linha+" td:nth-child(4)" ).text();
-      $("#local").val(local);
+      if(unidade == "SEDE"){
+          setor = $("#"+linha+" td:nth-child(5)" ).text();
+          $("#setor").val(setor);
+          $("#td_setor").text(setor);
+          $(".mostraSetor").show();
+      }
+      if(unidade == "TUTORIA"){
+          curso = $("#"+linha+" td:nth-child(6)" ).text();
+          $("#curso").val(curso);
+          $("#td_curso").text(curso);
+          $(".mostraCurso").show();
+      }
+      /********** BLOCO UNIDADE *********/
       
-      assunto = $("#"+linha+" td:nth-child(5)" ).text();
-      $("#assunto").val(assunto);
+      localidade = $("#"+linha+" td:nth-child(4)" ).text();
+      $("#localidade").val(localidade);
+      $("#td_localidade").text(localidade);
       
-      descricao = $("#"+linha+" td:nth-child(6)" ).text();
+      problema = $("#"+linha+" td:nth-child(7)" ).text();
+      $("#problema").val(problema);
+      $("#td_problema").text(problema);
+      
+      descricao = $("#"+linha+" td:nth-child(8)" ).text();
       $("#descricao").val(descricao);
+      $("#td_descricao").text(descricao);
       
-      prioridade = $("#"+linha+" td:nth-child(7)" ).text();
+      prioridade = $("#"+linha+" td:nth-child(9)" ).text();
       $("#prioridade").val(prioridade);
+      $("#td_prioridade").text(prioridade);
       
-      data = $("#"+linha+" td:nth-child(8)" ).text();
+      data = $("#"+linha+" td:nth-child(10)" ).text();
       $("#data").val(data);
+      $("#td_data").text(data);
       
-      ip = $("#"+linha+" td:nth-child(9)" ).text();
+      ip = $("#"+linha+" td:nth-child(11)" ).text();
       $("#ip").val(ip);
+      $("#td_ip").text(ip);
       
-      responsavel = $("#"+linha+" td:nth-child(10)" ).text();
+      responsavel = $("#"+linha+" td:nth-child(12)" ).text();
       $("#responsavel").val(responsavel);
+      $("#td_responsavel").text(responsavel);
     
       $("#atrelarForm").show();
     });

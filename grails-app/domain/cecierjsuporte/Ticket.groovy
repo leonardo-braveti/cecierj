@@ -6,8 +6,11 @@ class Ticket {
     String etiqueta    
     String descricao    
     String status
-    String localidade
     String unidade
+    String localidade
+    String setor    
+    String universidade
+    String curso
     String problema
     String prioridade
     Usuario dono
@@ -27,6 +30,10 @@ class Ticket {
         encerramento nullable: true     
         etiqueta nullable: true
         responsavel nullable: true
+        localidade nullable: true
+        setor nullable: true
+        universidade nullable: true
+        curso nullable: true
     }
     
 }
