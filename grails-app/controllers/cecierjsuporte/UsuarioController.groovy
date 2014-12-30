@@ -19,7 +19,7 @@ class UsuarioController {
     }
     
     def cadastrar(){
-        params.perfil = "usuario"        
+        params.perfil = "Usuário"        
         
         
         if(params.senha == params.rsenha){            
@@ -73,6 +73,6 @@ class UsuarioController {
         u.perfil = params.form_perf_novo
         u.save(flush:true)
         flash.message = "PERFIL MODIFICADO COM SUCESSO"
-        redirect(url: "/admin/usuarios")   
+        redirect(url: "/navegar/usuarios")   
     }
 }

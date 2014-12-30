@@ -45,7 +45,8 @@
                             <th>#</th>
                             <th>Nome</th>
                             <th>Email</th>
-                            <th>Local</th>
+                            <th>Unidade</th>
+                            <th>Localidade</th>
                             <th>Perfil</th>
                             <th style="width: 3.5em;">Ações</th>
                         </tr>
@@ -57,7 +58,8 @@
                                     <td>${item.id}</td>
                                     <td>${item.nome}</td>
                                     <td>${item.email}</td>
-                                    <td>${item.tipo}</td>
+                                    <td>${item.unidade}</td>
+                                    <td>${item.localidade}</td>
                                     <td>${item.perfil}</td>                            
                                     <td>
                                         <a href="#perfilForm"><i class="fa fa-pencil atualizar"  linha="l${i}"></i></a>
@@ -106,10 +108,11 @@
                         <div class="form-group">
                             <label class="col-lg-3 control-label">Novo Atual</label>
                             <div class="col-lg-6">                        
-                                <select name="form_perf_novo">                            
-                                    <option class="perfis" value="usuario"> Usuário </option>
-                                    <option class="perfis" value="analista"> Analista </option>
-                                    <option class="perfis" value="tecnico"> Técnico </option>
+                                <select name="form_perf_novo">   
+                                    <option class="perfis" value=""> </option>
+                                    <g:each in="${perfil}">                                        
+                                        <option class="perfis" value="${it.nome}"> ${it.nome} </option>
+                                    </g:each>
                                 </select>
                             </div>
                         </div>

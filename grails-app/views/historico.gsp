@@ -22,6 +22,9 @@
 
         <div class="content">
             <div class="header">            
+                <!-- importando estatisticas -->
+                <g:render template="../estatisticas" />    
+                <!-- importando cabecalho -->    
                 <h1 class="page-title">Tickets</h1>
                 <ul class="breadcrumb">            
                   <li><a>Tickets abertos</a></li>

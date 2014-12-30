@@ -15,7 +15,7 @@ class NavegarController {
 
     /* ****** TICKETS ****/
     def consolidado() {
-        render(view: "../consolidado")
+        render(view: "../consolidado")        
     }
     
     def novo(){        
@@ -34,13 +34,14 @@ class NavegarController {
     def abertos(){
         def usuario = session.usuario
         def abertos = null
-        if(usuario.perfil == Perfil.findByNome("Técnico"))
-            abertos = Ticket.findAllByStatusAndDono("aberto", usuario)        
-        if(usuario.perfil == Perfil.findByNome("Analista"))
-            abertos = Ticket.findAllByStatus("aberto")        
-            
-        def tecnicos = Usuario.findAllByPerfil(Perfil.findByNome("Técnico"))        
-        def analistas = Usuario.findAllByPerfil(Perfil.findByNome("Analista"))        
+        
+        if(usuario.perfil.equals("Técnico") || usuario.perfil.equals("Usuário"))
+            abertos = Ticket.findAllByStatusAndDono("ABERTO", usuario)        
+        if(usuario.perfil.equals("Analista"))
+            abertos = Ticket.findAllByStatus("ABERTO")        
+        
+        def tecnicos = Usuario.findAllByPerfil("Técnico")        
+        def analistas = Usuario.findAllByPerfil("Analista")
         
         render(view: "../abertos", model: [tickets: abertos, tecnicos: tecnicos, analistas: analistas])
     }
@@ -48,10 +49,10 @@ class NavegarController {
     def andamento(){
         def usuario = session.usuario
         def andamento = null
-        if(usuario.perfil == Perfil.findByNome("Técnico"))
-            andamento = Ticket.findAllByStatusAndDono("andamento", usuario)        
-        if(usuario.perfil == Perfil.findByNome("Analista"))
-            andamento = Ticket.findAllByStatus("andamento")        
+        if(usuario.perfil.equals("Técnico") || usuario.perfil.equals("Usuário"))
+            andamento = Ticket.findAllByStatusAndDono("ANDAMENTO", usuario)        
+        if(usuario.perfil.equals("Analista"))
+            andamento = Ticket.findAllByStatus("ANDAMENTO")        
         
         render(view: "../andamento", model: [tickets: andamento])
     }
@@ -74,8 +75,9 @@ class NavegarController {
     
     def usuarios(){
         def usuarios = Usuario.findAll()
-        render(view: "../usuarios", model: [usuarios: usuarios])
+        render(view: "../usuarios", model: [usuarios: usuarios, perfil: Perfil.findAll()])
     }
+    
     
     /******* USUARIOS ********/
     

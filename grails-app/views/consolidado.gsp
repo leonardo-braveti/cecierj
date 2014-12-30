@@ -20,11 +20,9 @@
 
         <div class="content">
             <div class="header">
-                <div class="stats">
-                    <p class="stat"><span class="label label-info">5</span> Tickets abertos</p>
-                    <p class="stat"><span class="label label-success">27</span> Tickets em andamento</p>
-                    <p class="stat"><span class="label label-danger">15</span> Total de tickets</p>
-                </div>
+                <!-- importando estatisticas -->
+                <g:render template="../estatisticas" />    
+                <!-- importando cabecalho -->                  
 
                 <h1 class="page-title">Ticket</h1>
                 <ul class="breadcrumb">

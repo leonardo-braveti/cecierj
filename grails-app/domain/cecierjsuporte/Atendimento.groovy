@@ -3,8 +3,7 @@ package cecierjsuporte
 class Atendimento {    
     String nome
     String solucao
-    Date data     
-    Status status
+    Date data         
     Ticket ticket    
     static hasOne = [usuario: Usuario]
     

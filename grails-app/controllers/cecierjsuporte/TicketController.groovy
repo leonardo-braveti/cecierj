@@ -5,6 +5,7 @@ class TicketController {
     
     def salvar(){        
         params.abertura = new Date();
+        params.status = "ABERTO"
         
         // prioridade
                 
@@ -47,16 +48,17 @@ class TicketController {
         redirect(url:"/navegar/abertos")
     }
     
-    def registrarTarefa(){                        
+    def registrarAtendimento(){                        
         def ticket = Ticket.get(params.id_ticket)
-        def tarefa = new Tarefa()         
-        tarefa.titulo = params.titulo        
-        tarefa.descricao = params.descricao        
-        tarefa.data = new Date()
-        tarefa.ticket = ticket
-        tarefa.save(failOnError: true)          
+        def atendimento = new Atendimento()         
+        atendimento.nome = params.titulo        
+        atendimento.solucao = params.descricao        
+        atendimento.data = new Date()
+        atendimento.ticket = ticket
+        atendimento.usuario = session.usuario
+        atendimento.save(failOnError: true)          
             
-        flash.message = "TAREFA INCLUÍDA COM SUCESSO NO TICKET #"+ticket.id
+        flash.message = "ATENDIMENTO INCLUÍDO COM SUCESSO NO TICKET #"+ticket.id
         redirect(url:"/navegar/andamento")
     }
     

@@ -4,7 +4,7 @@ class Problema{
     
     String nome;
     
-    static hasMany = [tickets: Ticket]
+
     static constraints = {
     }
     

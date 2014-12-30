@@ -22,6 +22,10 @@
 
         <div class="content">
             <div class="header">            
+                  <!-- importando estatisticas -->
+                <g:render template="../estatisticas" />    
+                <!-- importando cabecalho -->    
+                
                 <h1 class="page-title">Tickets</h1>
                 <ul class="breadcrumb">            
                   <li><a>Tickets abertos</a></li>
@@ -43,10 +47,10 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Criador</th>
-                            <th>Departamento</th>
-                            <th>Local</th>
-                            <th>Assunto</th>
+                            <th>Criador</th>                            
+                            <th>Unidade</th>
+                            <th>Localidade</th>                            
+                            <th>Problema</th>
                             <th>Descrição</th>
                             <th>Prioridade</th>
                             <th>Abertura</th>                                                                 
@@ -59,9 +63,9 @@
                         <tr id="l${i}">
                             <td>${item.id}</td>
                             <td>${item.dono.nome}</td>
-                            <td>${item.dono.setor}</td>
-                            <td>${item.dono.tipo}</td>
-                            <td>${item.assunto}</td>
+                            <td>${item.dono.unidade}</td>
+                            <td>${item.dono.localidade}</td>
+                            <td>${item.problema}</td>
                             <td>${item.descricao}</td>
                             <td>${item.prioridade}</td>
                             <td>${item.abertura}</td>
@@ -158,7 +162,7 @@
                         </div>
                         
                         <div id="tecnico" class="form-group">
-                            <label class="col-lg-3 control-label">Técnicos</label>
+                            <label class="col-lg-3 control-label">Técnicos do setor</label>
                             <div class="input-group col-lg-6">                                    
                                 <select id="nome_tecnico" class="grupo_tecnico">
                                     <option></option>       
@@ -170,7 +174,7 @@
                         </div>
                         
                         <div id="analista" class="form-group">
-                            <label class="col-lg-3 control-label">Analistas</label>
+                            <label class="col-lg-3 control-label">Analistas do setor</label>
                             <div class="input-group col-lg-6">                        
                                 <select id="nome_analista" class="grupo_analista">
                                     <option></option>       

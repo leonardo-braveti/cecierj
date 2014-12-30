@@ -19,17 +19,17 @@
                         </li>
                         <li>
                             <g:link controller="navegar" action="abertos">
-                                <span class="fa fa-caret-right"></span> Tickets Abertos
+                                <span class="fa fa-caret-right"></span> Tickets abertos
                             </g:link>                            
                         </li>
                         <li>
                             <g:link controller="navegar" action="andamento">
-                                <span class="fa fa-caret-right"></span> Tickets em Andamento
+                                <span class="fa fa-caret-right"></span> Tickets em andamento
                             </g:link>                            
                         </li>
                         <li>
                             <g:link controller="navegar" action="historico">
-                                <span class="fa fa-caret-right"></span> Histórico de Tickets
+                                <span class="fa fa-caret-right"></span> Histórico de tickets
                             </g:link>                            
                         </li>
                     </ul>
@@ -46,12 +46,12 @@
                     <ul class="usuarios-menu nav nav-list collapse">                
                         <li >
                             <g:link controller="navegar" action="usuarios">
-                                <span class="fa fa-caret-right"></span> Gerenciar Usuários
+                                <span class="fa fa-caret-right"></span> Gerenciar usuários
                             </g:link>
                         </li>
                         <li>
                             <g:link controller="usuario" action="pesquisar">
-                                <span class="fa fa-caret-right"></span> Pesquisar Usuarios
+                                <span class="fa fa-caret-right"></span> Pesquisar usuarios
                             </g:link>                            
                         </li>
                     </ul>
@@ -107,7 +107,7 @@
 
 	           <li>
                     <a href="#" data-target=".dados-menu" class="nav-header collapsed" data-toggle="collapse">
-                        <i class="fa fa-book"></i>Meus Dados 
+                        <i class="fa fa-book"></i>Meus dados 
                         <i class="fa fa-collapse"></i>
                     </a>
                 </li>

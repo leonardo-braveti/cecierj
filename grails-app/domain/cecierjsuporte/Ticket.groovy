@@ -5,11 +5,14 @@ class Ticket {
     Date encerramento                      
     String etiqueta    
     String descricao    
-    Status status
+    String status
     String localidade
     String unidade
     String problema
     String prioridade
+    Usuario dono
+    Usuario responsavel
+    String ip
     
     static hasOne = [dono:Usuario, responsavel:Usuario]    
     static hasMany = [atendimentos:Atendimento, equipamento:Equipamento]
@@ -23,6 +26,7 @@ class Ticket {
     static constraints = {         
         encerramento nullable: true     
         etiqueta nullable: true
+        responsavel nullable: true
     }
     
 }

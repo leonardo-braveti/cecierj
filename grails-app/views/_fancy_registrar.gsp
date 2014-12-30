@@ -1,5 +1,5 @@
 <div id="trabalhoForm" class="centralizar col-lg-10">
-    <g:form class="form-horizontal" url="[action:'registrarTarefa',controller:'ticket']"  >                          
+    <g:form class="form-horizontal" url="[action:'registrarAtendimento',controller:'ticket']"  >                          
        
         <input type="hidden" name="id_ticket" id="id_ticket">
         

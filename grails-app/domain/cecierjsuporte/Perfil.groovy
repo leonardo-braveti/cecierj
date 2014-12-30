@@ -6,8 +6,6 @@ class Perfil{
     static constraints = {
     }
     
-    static hasMany = [usuarios: Usuario]
-    
     static mapping = {
         version false        
     }  

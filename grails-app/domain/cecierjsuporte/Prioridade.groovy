@@ -4,7 +4,7 @@ class Prioridade{
     
     String nome;
     
-    static hasMany = [tickets: Ticket]
+
     static constraints = {
     }
     

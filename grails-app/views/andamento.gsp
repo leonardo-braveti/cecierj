@@ -22,7 +22,10 @@
         </div>
 
         <div class="content">
-            <div class="header">            
+            <div class="header">         
+                 <!-- importando estatisticas -->
+                <g:render template="../estatisticas" />    
+                <!-- importando cabecalho -->    
                 <h1 class="page-title">Tickets</h1>
                 <ul class="breadcrumb">            
                   <li><a>Em andamento</a></li>
@@ -46,9 +49,9 @@
                         <tr>
                             <th>#</th>
                             <th>Criador</th>
-                            <th>Departamento</th>
-                            <th>Local</th>
-                            <th>Assunto</th>
+                            <th>Unidade</th>
+                            <th>Localidade</th>
+                            <th>Problema</th>
                             <th>Descrição</th>
                             <th>Prioridade</th>
                             <th>Abertura</th>                                                                 
@@ -62,9 +65,9 @@
                         <tr id="l${i}">
                             <td>${item.id}</td>
                             <td>${item.dono.nome}</td>
-                            <td>${item.dono.setor}</td>
-                            <td>${item.dono.tipo}</td>
-                            <td>${item.assunto}</td>
+                            <td>${item.dono.unidade}</td>
+                            <td>${item.dono.localidade}</td>
+                            <td>${item.problema}</td>
                             <td>${item.descricao}</td>
                             <td>${item.prioridade}</td>
                             <td>${item.abertura}</td>
