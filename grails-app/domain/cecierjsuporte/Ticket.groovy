@@ -2,8 +2,7 @@ package cecierjsuporte
 
 class Ticket {    
     Date abertura
-    Date encerramento                      
-    String etiqueta    
+    Date encerramento                          
     String descricao    
     String status
     String unidade
@@ -16,9 +15,10 @@ class Ticket {
     Usuario dono
     Usuario responsavel
     String ip
+    Equipamento equipamento
     
     static hasOne = [dono:Usuario, responsavel:Usuario]    
-    static hasMany = [atendimentos:Atendimento, equipamento:Equipamento]
+    static hasMany = [atendimentos:Atendimento]
     
     static mapping = {
         version false        
@@ -28,7 +28,7 @@ class Ticket {
     
     static constraints = {         
         encerramento nullable: true     
-        etiqueta nullable: true
+        equipamento nullable: true
         responsavel nullable: true
         localidade nullable: true
         setor nullable: true

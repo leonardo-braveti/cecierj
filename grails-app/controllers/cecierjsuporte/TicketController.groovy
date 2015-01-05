@@ -17,17 +17,12 @@ class TicketController {
         ticket.dono = session.usuario        
         
         ticket.save(failOnError: true);        
-        flash.message = "TICKET CRIADO COM SUCESSO. ACOMPANHE O MESMO ATRAVÉS DO MENU TICKET"
-        redirect(url:"/navegar/novo")        
+        flash.message = "TICKET CRIADO COM SUCESSO"
+        redirect(url:"/navegar/listarTicketsAbertos")        
     }    
     
     def atualizar(){
-        def ticket = Ticket.get(params.id)
-        def computador = Computador.findByHostname(params.hostname)
-        ticket.computador = computador;
-        ticket.save(failOnError: true);        
-        flash.message = "COMPUTADOR "+computador.hostname+" VINCULADO AO TICKET #"+ticket.id+" COM SUCESSO"
-        redirect(url:"/navegar/andamento")        
+        
     }
     
     def encerrar(){
@@ -40,8 +35,7 @@ class TicketController {
     }
     
     /******  area administrativa **************/
-    def atribuirTecnico(){
-        System.out.println(params)        
+    def atribuirTecnico(){        
         Usuario responsavel = Usuario.findByNome(params.responsavel);
         def ticket = Ticket.get(params.id);
         
@@ -50,6 +44,15 @@ class TicketController {
         ticket.save(flush:true)   
         flash.message = "TICKET #"+ticket.id+" FOI VINCULADO À "+responsavel.nome.toUpperCase()+" COM SUCESSO."
         redirect(url:"/navegar/listarTicketsEmAndamento")
+    }
+    
+    def vincularEquipamento(){
+        def ticket = Ticket.get(params.id)
+        def equipamento = Equipamento.findByEtiqueta(params.etiqueta)        
+        ticket.equipamento = equipamento;        
+        ticket.save(failOnError: true);        
+        flash.message = "EQUIPAMENTO "+equipamento.etiqueta+" VINCULADO AO TICKET #"+ticket.id+" COM SUCESSO"
+        redirect(url:"/navegar/listarTicketsEmAndamento")        
     }
     
     def registrarAtendimento(){                        

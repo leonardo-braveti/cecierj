@@ -1,0 +1,30 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 17/12/2014, 15:52:42
+    Author     : leonardo
+*/
+
+#mensagem_ticket{    
+    margin:0 auto;
+    position: relative;    
+    font-family: "Open Sans";
+    font-size: 14px;    
+    text-align: center;
+    color: red;
+    font-weight: bold;
+    
+}
+
+button{
+    width: 90px;
+}
+.centralizar{	 
+    margin:0 auto;
+    position: relative;    
+    text-align: center;
+}
+

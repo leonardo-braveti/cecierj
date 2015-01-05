@@ -172,15 +172,15 @@
                             </div>
                         </div>
                         
-                        <div class="form-group" id="nome_maquina">
-                            <label class="col-lg-3 control-label">Selecione o hostname</label>
-                            <div class="col-lg-6">                        
-                                <select>
-                                    <g:each var="eq" in="${computadores}">
-                                        <option value="${it.hostname}">${it.hostname}</option>
+                        <div class="form-group centralizar" id="nome_maquina">
+                            <label class="col-lg-6 control-label">Selecione o etiqueta</label>
+                            <div class="col-lg-1">                        
+                                <select name="etiqueta">
+                                    <g:each in="${equipamentos}">
+                                        <option value="${it.etiqueta}">${it.etiqueta}</option>
                                     </g:each>
                                 </select>                                    
-                            </div>                            
+                            </div>                                          
                         </div>   
                         
                         <div class="form-group centralizar" >                                                                     

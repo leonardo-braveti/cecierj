@@ -1,14 +1,13 @@
 package cecierjsuporte
 
-class Equipamento {
+class Equipamento{
 
     String hostname
     String ip
     String etiqueta
     
     static constraints = {
-        ip nullable:true
-        etiqueta nullable:true 
+        ip nullable:true        
     }
     
     static mapping = {

@@ -4,6 +4,7 @@ import cecierjsuporte.Universidade
 import cecierjsuporte.Usuario
 
 import cecierjsuporte.Curso
+import cecierjsuporte.Equipamento
 import cecierjsuporte.Localidade
 import cecierjsuporte.Perfil
 import cecierjsuporte.Prioridade
@@ -201,6 +202,17 @@ class BootStrap {
                         celular: "(21) 97618-8370",
                         telefone: "(21) 2333-1103"
             ).save(failOnError:true)
+        }
+        
+        if(!Equipamento.count()){
+            new Equipamento(etiqueta: "SEEDUC 985",
+                            hostname: "DSI-985"
+            ).save(failOnError:true)
+            
+            new Equipamento(etiqueta: "00-145589",
+                            hostname: "DSI-89"
+            ).save(failOnError:true)
+        
         }
 
         

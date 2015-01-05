@@ -107,20 +107,20 @@
             
                 <li>
                     <a href="#" data-target=".dados-computador" class="nav-header collapsed" data-toggle="collapse">
-                        <i class="fa fa-desktop"></i>Computador
+                        <i class="fa fa-desktop"></i>Equipamentos
                         <i class="fa fa-collapse"></i>
                     </a>
                 </li>
                 <li>
                     <ul class="dados-computador nav nav-list collapse">
                         <li>
-                            <g:link controller="navegar" action="incluirComputador">
+                            <g:link controller="navegar" action="incluirEquipamento">
                                 <span class="fa fa-caret-right"></span> Incluir
                             </g:link>                            
                         </li>
                         <li>
-                            <g:link controller="navegar" action="pesquisarComputador">
-                                <span class="fa fa-caret-right"></span> Pesquisar
+                            <g:link controller="navegar" action="listarEquipamentos">
+                                <span class="fa fa-caret-right"></span> Listar
                             </g:link>                            
                         </li>                                                
                     </ul>

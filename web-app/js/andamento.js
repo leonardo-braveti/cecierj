@@ -106,10 +106,10 @@ $("document").ready(function(){
     });
     
     $("#atualizar_ticket").click(function(event){
-       event.preventDefault() ;
+       
+       $("#form_principal").attr("action", "/CecierjSuporte/ticket/vincularEquipamento");
        alert($("#form_principal").attr("action"));
-       $("#form_principal").attr("action", "/CecierjSuporte/ticket/atualizar");
-       alert($("#form_principal").attr("action"));
+       
     });
     
     $("#nome_maquina").hide();

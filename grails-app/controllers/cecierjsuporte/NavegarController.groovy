@@ -59,7 +59,7 @@ class NavegarController {
         if(usuario.perfil.equals("Analista"))
             andamento = Ticket.findAllByStatus("ANDAMENTO")        
         
-        render(view: "../listarTicketsEmAndamento", model: [tickets: andamento])
+        render(view: "../listarTicketsEmAndamento", model: [tickets: andamento, equipamentos: Equipamento.findAll()])
     }
     
     def listarHistoricoDeTickets(){
@@ -89,6 +89,19 @@ class NavegarController {
     }
     
     /******* USUARIOS ********/
+    
+    
+    /***** COMPUTADORES *****/
+        def incluirEquipamento(){
+            render(view: "../incluirEquipamento")
+        }
+        def listarEquipamentos(){            
+            render(view: "../listarEquipamentos", model: [equipamentos: Equipamento.findAll()])
+        }
+        
+    /***** COMPUTADORES ****/
+    
+    
     
     /******* SAIR ***********/
     def sair(){        
